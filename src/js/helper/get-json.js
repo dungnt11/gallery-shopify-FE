@@ -7,7 +7,7 @@ async function getJsonByShop(handleGallery) {
   const hostname = window.location.hostname;
   if (!hostname && process.env.NODE_ENV !== 'development') {return;}
   const shopName = getShop(hostname);
-  const urlJSON = process.env.NODE_ENV === 'development' ? process.env.URL_JSON_GALLERY : `${process.env.URL_BASE}/${shopName}/${handleGallery}.json`;
+  const urlJSON = process.env.NODE_ENV === 'development' ? `${process.env.URL_JSON_GALLERY}?time=${Date.now()}` : `${process.env.URL_BASE}/${shopName}/${handleGallery}.json`;
   const resGallery = await fetch(urlJSON, {
     'headers': {
       'accept': '*/*',
