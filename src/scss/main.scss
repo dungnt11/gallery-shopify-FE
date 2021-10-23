@@ -2,6 +2,9 @@
 // into a CSS stylesheet                       |
 // - - - - - - - - - - - - - - - - - - - - - - |
 
+// Mixin
+@import 'mixins/responsive';
+
 // Base
 @import 'base/variables';
 @import 'base/typography';
