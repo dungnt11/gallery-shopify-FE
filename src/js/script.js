@@ -44,7 +44,7 @@ class Gallery {
       rowGap, columnGap,
     } = gallery;
 
-    Object.keys(rowGap).forEach((display) => {
+    Object.keys(rowGap).reverse().forEach((display) => {
       this.cssBase += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] {
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
@@ -80,7 +80,7 @@ class Gallery {
         </div>
       `;
 
-      Object.keys(image.layout).forEach((display) => {
+      Object.keys(image.layout).reverse().forEach((display) => {
         const layoutObj = image.layout[display];
 
         this.cssBase += genResponsiveCode(display, `
