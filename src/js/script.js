@@ -6,6 +6,7 @@ import { injectCSSToHead } from './helper/injectCSStoHead';
 class Gallery {
   constructor() {
     this.loadingDOM = LOADING_SVG;
+    this.responsiveArr = ['xs', 'sm', 'md', 'lg', 'xl'];
     this.cssBase = '';
   }
   
@@ -44,7 +45,7 @@ class Gallery {
       rowGap, columnGap,
     } = gallery;
 
-    Object.keys(rowGap).reverse().forEach((display) => {
+    this.responsiveArr.forEach((display) => {
       this.cssBase += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] {
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
@@ -80,7 +81,7 @@ class Gallery {
         </div>
       `;
 
-      Object.keys(image.layout).reverse().forEach((display) => {
+      this.responsiveArr.forEach((display) => {
         const layoutObj = image.layout[display];
 
         this.cssBase += genResponsiveCode(display, `
