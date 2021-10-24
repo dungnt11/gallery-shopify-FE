@@ -7,18 +7,10 @@
 @import 'base/typography';
 @import 'base/base';
 
-// Layout
-@import 'layout/layout';
-@import 'layout/header';
-@import 'layout/footer';
+// Lib
+@import 'aos/src/sass/aos';
 
-// Helpers
-@import 'helpers/margins';
 
 //Components
 @import 'components/loading';
 @import 'components/gallery';
-
-//Pages
-@import 'pages/home';
-

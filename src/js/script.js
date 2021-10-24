@@ -1,3 +1,4 @@
+import AOS from 'aos';
 import { getJsonByShop } from './helper/get-json';
 import { LOADING_SVG } from './constant';
 import { genResponsiveCode } from './helper/responsive';
@@ -8,6 +9,12 @@ class Gallery {
     this.loadingDOM = LOADING_SVG;
     this.responsiveArr = ['xs', 'sm', 'md', 'lg', 'xl'];
     this.cssBase = '';
+    this.aos = null;
+    /**
+     * Khi preview mỗi gallery, từ app thì cái này sẽ là true
+     * Cái này dùng để active hiệu ứng aos khi user cuộn chuột xuống
+     */
+    this.isPreview = false;
   }
   
   async init() {
@@ -17,6 +24,9 @@ class Gallery {
       await Promise.all(Array.from(galleriesDOM).map((galleryDOMItem) => this.genGallery(galleryDOMItem)));
       // Gen css cho toàn bộ gallery
       injectCSSToHead(this.cssBase);
+      this.aos = AOS.init({
+        startEvent: 'DOMContentLoaded',
+      });
     }
   }
 
@@ -26,7 +36,7 @@ class Gallery {
       galleryDOMArg.innerHTML = this.loadingDOM;
       const galleryDB = await getJsonByShop(galleryHandle);
       this.buildGalleryCss(galleryHandle, galleryDB);
-      galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB.images, galleryHandle);
+      galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB, galleryHandle);
     } catch (error) {
       // Nếu có lỗi sẽ thông báo ở đây
       console.log(error);
@@ -70,12 +80,28 @@ class Gallery {
   }
 
   // Item trong gallery
-  buildImageGallery(images, galleryHandle) {
+  buildImageGallery(galleryDB, galleryHandle) {
+    const { images, gallery } = galleryDB;
+    const { settings } = gallery;
+    const { scrollAnimation } = settings;
+    const { animation, anchorPlacements, easingFunctions } = scrollAnimation;
+
     let imagesDOM = '';
 
     images.forEach((image) => {
       imagesDOM += `
-        <div class="e-gallery__item" id="${image.id}">
+        <div
+          class="e-gallery__item"
+          id="${image.id}"
+          data-aos="${animation || 'zoom-in'}"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="300"
+          data-aos-easing="${easingFunctions || 'ease-in-out'}"
+          data-aos-once="true"
+          data-aos-anchor-placement="${anchorPlacements || 'top-center'}"
+          ${this.isPreview ? 'data-aos-anchor="body"' : ''}
+        >
           ${this.genImageByEffect(image.effect)}
           <img class="e-gallery__image" alt="${image.alt}" src="${image.src}" />
         </div>
