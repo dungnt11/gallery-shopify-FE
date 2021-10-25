@@ -1,4 +1,5 @@
 import AOS from 'aos';
+import GLightbox from 'glightbox';
 import { getJsonByShop } from './helper/get-json';
 import { LOADING_SVG } from './constant';
 import { genResponsiveCode } from './helper/responsive';
@@ -14,6 +15,7 @@ class Gallery {
      * Khi preview mỗi gallery, từ app thì cái này sẽ là true
      * Cái này dùng để active hiệu ứng aos khi user cuộn chuột xuống
      */
+    this.glightbox = null;
     this.isPreview = false;
   }
   
@@ -25,6 +27,9 @@ class Gallery {
       // Gen css cho toàn bộ gallery
       injectCSSToHead(this.cssBase);
       this.aos = AOS.init({
+        startEvent: 'DOMContentLoaded',
+      });
+      this.glightbox = GLightbox({
         startEvent: 'DOMContentLoaded',
       });
     }
@@ -103,7 +108,7 @@ class Gallery {
           ${this.isPreview ? 'data-aos-anchor="body"' : ''}
         >
           ${this.genImageByEffect(image.effect)}
-          <img class="e-gallery__image" alt="${image.alt}" src="${image.src}" />
+          <a href="${image.src}" class="glightbox"><img class="e-gallery__image" alt="${image.alt}" src="${image.src}" /></a>
         </div>
       `;
 

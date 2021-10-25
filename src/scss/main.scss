@@ -2,6 +2,9 @@
 // into a CSS stylesheet                       |
 // - - - - - - - - - - - - - - - - - - - - - - |
 
+// Mixin
+@import 'base/mixin';
+
 // Base
 @import 'base/variables';
 @import 'base/typography';
@@ -9,6 +12,7 @@
 
 // Lib
 @import 'aos/src/sass/aos';
+@import 'glightbox/dist/css/glightbox.min';
 
 
 //Components
