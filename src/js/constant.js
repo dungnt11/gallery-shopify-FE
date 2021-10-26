@@ -1,4 +1,4 @@
-const LOADING_SVG = `<svg width="100" height="100" viewBox="0 0 300 300">
+const LOADING_SVG = `<svg class="page-loader" width="100" height="100" viewBox="0 0 300 300">
 <defs>
 <linearGradient id="gradient-fill" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="300" y2="0">
 <stop offset="0%">

@@ -1,0 +1,41 @@
+.effect-marley {
+	figcaption {
+		text-align: right;
+	}
+	h2 {
+		@include absolute(top 30px right 30px left 30px);
+		padding: 10px 0;
+		@include prefix(transition, transform 0.35s, webkit);
+		@include prefix(transform, translate3d(0, 20px, 0), webkit);
+		&::after {
+			@include absolute(top 100% left 0);
+			@include box(100%, 4px);
+			background: #fff;
+			content: "";
+			opacity: 0;
+			@include prefix(transform, translate3d(0, 40px, 0), webkit);
+			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		}
+	}
+	p {
+		@include absolute(right 30px bottom 30px left 30px);
+		padding: 10px 0;
+		line-height: 1.5;
+		opacity: 0;
+		@include prefix(transform, translate3d(0, 100%, 0), webkit);
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+	}
+	&:hover {
+		h2 {
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+			&::after {
+				opacity: 1;
+				@include prefix(transform, translate3d(0, 0, 0), webkit);
+			}
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+	}
+}

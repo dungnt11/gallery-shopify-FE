@@ -1,0 +1,43 @@
+.effect-lily {
+	&:hover {
+		img, p {
+			opacity: 1;
+		}
+		img, h2, p {
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		p {
+			@include prefix(transition-delay, 0.05s, webkit);
+			@include prefix(transition-duration, 0.35s, webkit);
+		}
+	}
+	figcaption {
+		text-align: left;
+		> div {
+			@include absolute(bottom 0 left 0);
+			@include box(100%);
+			@include flexbox();
+			@include flex-direction(column);
+			@include justify-content(flex-end);
+			padding: 2em;
+		}
+	}
+	img {
+		max-width: none;
+		width: calc(100% + 50px) !important;
+		opacity: 0.7;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit o);
+		@include prefix(transform, translate3d(-40px, 0, 0), webkit);
+	}
+	h2,	p {
+		@include prefix(transform, translate3d(0, 40px, 0), webkit);
+	}
+	h2 {
+		@include prefix(transition, transform 0.35s, webkit o);
+	}
+	p {
+		color: rgba(255, 255, 255, 0.8);
+		opacity: 0;
+		@include prefix(transition, (opacity 0.2s, transform 0.35s), webkit o);
+	}
+}

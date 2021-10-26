@@ -1,0 +1,65 @@
+.effect-steve {
+	z-index: auto;
+	background: #000;
+	&:before {
+		@include absolute(top 0 left 0);
+		@include box(100%);
+		z-index: -1;
+		background: #000;
+		content: "";
+		@include prefix(transition, opacity 0.35s, webkit);
+		box-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
+		opacity: 0;
+	}
+	h2 {
+		&:before {
+			@include absolute(top 0 left 0);
+			z-index: -1;
+			@include box(100%);
+			background: #000;
+			content: "";
+			@include prefix(transition, opacity 0.35s, webkit);
+			box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+		}
+		background: #fff;
+		color: #2d434e;
+		position: relative;
+		margin-top: 2em;
+		padding: 0.25em;
+	}
+	figcaption {
+		z-index: 1;
+	}
+	img {
+		opacity: 1;
+		@include prefix(transition, transform 0.35s, webkit);
+		@include prefix(transform, perspective(1000px) translate3d(0, 0, 0), webkit);
+	}
+	p {
+		background: #fff;
+		color: #2d434e;
+		margin-top: 1em;
+		padding: 0.5em;
+		font-weight: 800;
+		opacity: 0;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include prefix(transform, scale3d(0.9, 0.9, 1), webkit);
+	}
+	&:hover {
+		&:before {
+			opacity: 1;
+		}
+		img {
+			@include prefix(transform, perspective(1000px) translate3d(0, 0, 21px), webkit);
+		}
+		h2 {
+			&:before {
+				opacity: 0;
+			}
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, scale3d(1, 1, 1), webkit);
+		}
+	}
+}

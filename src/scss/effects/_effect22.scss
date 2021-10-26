@@ -1,0 +1,67 @@
+.effect-phoebe {
+	background: #675983;
+	img {
+		opacity: 0.85;
+		@include prefix(transition, opacity 0.35s, webkit);
+	}
+	&:hover {
+		img {
+			opacity: 0.6;
+		}
+		figcaption {
+			&::before {
+				opacity: 0.6;
+				@include prefix(transform, scale3d(1, 1, 1), webkit);
+			}
+		}
+		h2 {
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		p {
+			a {
+				opacity: 1;
+				@include prefix(transform, translate3d(0, 0, 0), webkit);
+			}
+		}
+	}
+	figcaption {
+		&::before {
+			@include absolute(top 0 left 0);
+			@include box(100%);
+			//background: url(../img/triangle2.svg) no-repeat center center;
+			background-size: 100% 100%;
+			content: "";
+			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+			@include prefix(transform, scale3d(5, 2.5, 1), webkit);
+			@include prefix(transform-origin, 50% 50%, webkit);
+		}
+	}
+	h2 {
+		margin-top: 1em;
+		-webkit-transition: transform 0.35s;
+		transition: transform 0.35s;
+		@include prefix(transform, translate3d(0, 40px, 0), webkit);
+	}
+	p {
+		a {
+			color: #fff;
+			font-size: 140%;
+			opacity: 0;
+			position: relative;
+			display: inline-block;
+			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+			&:first-child {
+				-webkit-transform: translate3d(-60px, -60px, 0);
+				transform: translate3d(-60px, -60px, 0);
+			}
+			&:nth-child(2) {
+				-webkit-transform: translate3d(0, 60px, 0);
+				transform: translate3d(0, 60px, 0);
+			}
+			&:nth-child(3) {
+				-webkit-transform: translate3d(60px, -60px, 0);
+				transform: translate3d(60px, -60px, 0);
+			}
+		}
+	}
+}

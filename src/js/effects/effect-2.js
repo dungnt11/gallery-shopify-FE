@@ -8,7 +8,7 @@ function effect2(effect, imageDOM) {
     ${imageDOM}
     <figcaption>
       <h2>Holy <span>Sadie</span></h2>
-      <p>Sadie never took her eyes off me. <br>She had a dark soul.</p>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

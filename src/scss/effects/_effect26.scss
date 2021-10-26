@@ -1,0 +1,42 @@
+.effect-moses {
+	background: -webkit-linear-gradient(-45deg, #ec65b7 0%, #05e0d8 100%);
+	background: linear-gradient(-45deg, #ec65b7 0%, #05e0d8 100%);
+	img {
+		opacity: 0.85;
+		@include prefix(transition, opacity 0.35s, webkit);
+	}
+	h2 {
+		padding: 20px;
+		width: 50%;
+		height: 50%;
+		border: 2px solid #fff;
+		padding: 20px;
+		@include box(50%);
+		text-align: left;
+		@include prefix(transition, transform 0.35s, webkit);
+		@include prefix(transform, translate3d(10px, 10px, 0), webkit);
+	}
+	p {
+		padding: 20px;
+		@include box(50%);
+		border: 2px solid #fff;
+		float: right;
+		padding: 20px;
+		text-align: right;
+		opacity: 0;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include prefix(transform, translate3d(-50%, -50%, 0), webkit);
+	}
+	&:hover {
+		h2 {
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		img {
+			opacity: 0.6;
+		}
+	}
+}

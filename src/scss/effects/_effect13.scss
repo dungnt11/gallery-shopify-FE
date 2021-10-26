@@ -1,0 +1,48 @@
+figure.effect-sarah {
+	background: #42b078;
+	img {
+		max-width: none;
+		width: -webkit-calc(100% + 20px);
+		width: calc(100% + 20px);
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include prefix(transform, translate3d(-10px, 0, 0), webkit);
+		@include prefix(backface-visibility, hidden, webkit);
+	}
+	&:hover {
+		img {
+			opacity: 0.4;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		h2 {
+			&::after {
+				@include prefix(transform, translate3d(0, 0, 0), webkit);
+			}
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+	}
+	figcaption {
+		text-align: left;
+	}
+	h2 {
+		position: relative;
+		overflow: hidden;
+		padding: 0.5em 0;
+		&::after {
+			@include absolute(bottom 0 left 0);
+			@include box(100%, 3px);
+			background: #fff;
+			content: "";
+			@include prefix(transition, transform 0.35s, webkit);
+			@include prefix(transform, translate3d(-100%, 0, 0), webkit);
+		}
+	}
+	p {
+		padding: 1em 0;
+		opacity: 0;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include prefix(transform, translate3d(100%, 0, 0), webkit);
+	}
+}

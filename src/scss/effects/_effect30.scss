@@ -1,0 +1,38 @@
+.effect-duke {
+	background: -webkit-linear-gradient(-45deg, #34495e 0%, #cc6055 100%);
+	background: linear-gradient(-45deg, #34495e 0%, #cc6055 100%);
+	img {
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+	}
+	p {
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include absolute(bottom 0 left 0);
+		margin: 20px;
+		padding: 30px;
+		border: 2px solid #fff;
+		text-transform: none;
+		font-size: 90%;
+		opacity: 0;
+		@include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
+		@include prefix(transform-origin, 50% -100%, webkit);
+	}
+	&:hover {
+		img {
+			opacity: 0.1;
+			@include prefix(transform, scale3d(2, 2, 1), webkit);
+		}
+		h2 {
+			opacity: 1;
+			@include prefix(transform, scale3d(1, 1, 1), webkit);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, scale3d(1, 1, 1), webkit);
+		}
+	}
+	h2 {
+		@include prefix(transition, transform 0.35s, webkit);
+		@include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
+		@include prefix(transform-origin, 50% 100%, webkit);
+	}
+}

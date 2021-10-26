@@ -1,0 +1,32 @@
+.effect-selena {
+	background: #fff;
+	img {
+		opacity: 0.95;
+		@include prefix(transition, transform 0.35s, webkit);
+		@include prefix(transform-origin, 50% 50%, webkit);
+	}
+	&:hover {
+		img {
+			@include prefix(transform, scale3d(0.95, 0.95, 1), webkit);
+		}
+		h2 {
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, perspective(1000px) rotate3d(1, 0, 0, 0), webkit);
+		}
+	}
+	h2 {
+		@include prefix(transition, transform 0.35s, webkit);
+		@include prefix(transform, translate3d(0, 20px, 0), webkit);
+	}
+	p {
+		opacity: 0;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		-webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+		transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+		-webkit-transform-origin: 50% 0%;
+		transform-origin: 50% 0%;
+	}
+}

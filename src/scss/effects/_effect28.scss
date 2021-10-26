@@ -1,0 +1,47 @@
+.effect-ming {
+	background: #030c17;
+	img {
+		opacity: 0.9;
+		@include prefix(transition, opacity 0.35s, webkit);
+	}
+	figcaption {
+		&::before {
+			@include absolute(top 30px right 30px bottom 30px left 30px);
+			border: 2px solid #fff;
+			box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.2);
+			content: "";
+			opacity: 0;
+			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+			@include prefix(transform, scale3d(1.4, 1.4, 1), webkit);
+		}
+	}
+	h2 {
+		margin: 20% 0 10px 0;
+		@include prefix(transition, transform 0.35s, webkit);
+	}
+	p {
+		padding: 1em;
+		opacity: 0;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include prefix(transform, scale(1.5), webkit);
+	}
+	&:hover {
+		h2 {
+			@include prefix(transform, scale(0.9), webkit);
+		}
+		figcaption {
+			&::before {
+				opacity: 1;
+				@include prefix(transform, scale3d(1, 1, 1), webkit);
+			}
+			background-color: rgba(58, 52, 42, 0);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, scale3d(1, 1, 1), webkit);
+		}
+		img {
+			opacity: 0.4;
+		}
+	}
+}

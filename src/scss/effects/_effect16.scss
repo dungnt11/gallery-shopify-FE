@@ -1,0 +1,59 @@
+.effect-julia {
+	background: #2f3238;
+	img {
+		max-width: none;
+		object-fit: cover;
+		@include box(100%, 400px);
+		@include prefix(transition, (opacity 1s, transform 1s), webkit);
+		@include prefix(backface-visibility, hidden, webkit);
+	}
+	figcaption {
+		text-align: left;
+	}
+	h2 {
+		position: relative;
+		padding: 0.5em 0;
+	}
+	p {
+		display: inline-block;
+		margin: 0 0 0.25em;
+		padding: 0.4em 1em;
+		background: rgba(255, 255, 255, 0.9);
+		color: #2f3238;
+		text-transform: none;
+		font-weight: 500;
+		font-size: 75%;
+		display: block;
+		width: max-content;
+		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+		@include prefix(transform, translate3d(-360px, 0, 0), webkit);
+		&:first-child {
+			@include prefix(transition-delay, 0.15s, webkit);
+		}
+		&:nth-of-type(2) {
+			@include prefix(transition-delay, 0.1s, webkit);
+		}
+		&:nth-of-type(3) {
+			@include prefix(transition-delay, 0.05s, webkit);
+		}
+	}
+	&:hover {
+		p {
+			&:first-child {
+				@include prefix(transition-delay, 0s, webkit);
+			}
+			&:nth-of-type(2) {
+				@include prefix(transition-delay, 0.05s, webkit);
+			}
+			&:nth-of-type(3) {
+				@include prefix(transition-delay, 0.1s, webkit);
+			}
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		img {
+			opacity: 0.4;
+			@include prefix(transform, scale3d(1.1, 1.1, 1), webkit);
+		}
+	}
+}
