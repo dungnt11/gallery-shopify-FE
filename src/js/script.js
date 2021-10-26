@@ -4,6 +4,7 @@ import { getJsonByShop } from './helper/get-json';
 import { LOADING_SVG } from './constant';
 import { genResponsiveCode } from './helper/responsive';
 import { injectCSSToHead } from './helper/injectCSStoHead';
+import { effectBase } from './effects';
 
 class Gallery {
   constructor() {
@@ -107,8 +108,9 @@ class Gallery {
           data-aos-anchor-placement="${anchorPlacements || 'top-center'}"
           ${this.isPreview ? 'data-aos-anchor="body"' : ''}
         >
-          ${this.genImageByEffect(image.effect)}
-          <a href="${image.src}" class="glightbox"><img class="e-gallery__image" alt="${image.alt}" src="${image.src}" /></a>
+          <a href="${image.src}" class="glightbox">
+            ${effectBase(image)}
+          </a>
         </div>
       `;
 
@@ -125,13 +127,6 @@ class Gallery {
     });
 
     return imagesDOM;
-  }
-
-  // Build image effect cho từng ảnh
-  genImageByEffect(effect) {
-    //
-
-    return '';
   }
 }
 

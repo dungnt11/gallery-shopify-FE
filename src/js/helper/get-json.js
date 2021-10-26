@@ -25,9 +25,8 @@ async function getJsonByShop(handleGallery) {
     'mode': 'cors',
     'credentials': 'include'
   });
-
-  const resGalleryPaser = await resGallery.json();
-  return resGalleryPaser;
+  const resGalleryParser = await resGallery.json();
+  return resGalleryParser;
 }
 
 export { getJsonByShop };
