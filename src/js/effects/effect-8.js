@@ -1,5 +1,5 @@
 /**
- * Generate effect - 08
+ * Generate effect - 8
  * @param effect
  * @param imageDOM -  image DOM
  */
