@@ -38,7 +38,7 @@
 		padding: 1em 1.5em;
 		width: 100%;
 		text-align: left;
-		@include prefix(transform, translate3d(0, -30px, 0), webkit);
+		@include prefix(transform, translate3d(0, -20px, 0), webkit);
 		@include prefix(transition, transform 0.35s, webkit);
 		i {
 			font-style: normal;

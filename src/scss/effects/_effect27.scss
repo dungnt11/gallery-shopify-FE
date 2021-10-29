@@ -6,6 +6,9 @@
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 	}
 	figcaption {
+		@include flexbox();
+		@include align-items(center);
+		@include justify-content(center);
 		&::after {
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 			@include absolute(top 0 left 0);

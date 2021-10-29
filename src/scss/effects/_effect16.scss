@@ -26,7 +26,7 @@
 		display: block;
 		width: max-content;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, translate3d(-360px, 0, 0), webkit);
+		@include prefix(transform, translate3d(-1000%, 0, 0), webkit);
 		&:first-child {
 			@include prefix(transition-delay, 0.15s, webkit);
 		}

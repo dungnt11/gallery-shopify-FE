@@ -2,8 +2,8 @@
 	background: #2e5d5a;
 	img {
 		max-width: none;
-		width: -webkit-calc(100% + 60px);
-		width: calc(100% + 60px);
+		width: -webkit-calc(100% + 60px) !important;
+		width: calc(100% + 60px) !important;
 		opacity: 1;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, (translate3d(-30px, 0, 0) scale(1.12)), webkit);

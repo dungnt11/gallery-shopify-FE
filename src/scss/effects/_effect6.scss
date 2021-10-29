@@ -1,7 +1,8 @@
 .effect-layla {
 	background: #18a367;
 	img {
-		@include box(100%, 390px);
+		width: 100%;
+		height: calc(100% + 40px) !important;
 		object-fit: cover;
 		@include prefix(transform, translate3d(0, -30px, 0), webkit);
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);

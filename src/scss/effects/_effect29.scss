@@ -4,8 +4,8 @@
 	img {
 		margin: -10px 0 0 -10px;
 		max-width: none;
-		width: -webkit-calc(100% + 10px);
-		width: calc(100% + 10px);
+		width: calc(100% + 10px) !important;
+		height: calc(100% + 10px) !important;
 		opacity: 0.9;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, translate3d(10px, 10px, 0), webkit);
