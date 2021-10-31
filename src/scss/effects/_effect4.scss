@@ -1,10 +1,10 @@
-.effect-bubba {
+.e-image-item.effect-bubba {
 	background: #9e5406;
 	img {
 		opacity: 0.7;
 		@include prefix(transition, opacity 0.35s, webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.4;
 		}
@@ -28,6 +28,13 @@
 		}
 	}
 	figcaption {
+		> div {
+			height: 100%;
+			@include flexbox();
+			@include flex-direction(column);
+			@include align-items(center);
+			@include justify-content(center);
+		}
 		&::before {
 			@include absolute(top 30px right 30px bottom 30px left 30px);
 			content: "";
@@ -48,9 +55,9 @@
 		}
 	}
 	h2 {
-		padding-top: 15%;
+		padding-top: 15px;
 		@include prefix(transition, transform 0.35s, webkit);
-		@include prefix(transform, translate3d(0, -20px, 0), webkit);
+		@include prefix(transform, translate3d(0, -10px, 0), webkit);
 	}
 	p {
 		padding: 20px 2.5em;

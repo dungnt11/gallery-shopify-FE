@@ -1,5 +1,24 @@
-.effect-julia {
+.e-image-item.effect-julia {
 	background: #2f3238;
+	&:hover, &.effect-hover {
+		p {
+			&:first-child {
+				@include prefix(transition-delay, 0s, webkit);
+			}
+			&:nth-of-type(2) {
+				@include prefix(transition-delay, 0.05s, webkit);
+			}
+			&:nth-of-type(3) {
+				@include prefix(transition-delay, 0.1s, webkit);
+			}
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		img {
+			opacity: 0.4;
+			@include prefix(transform, scale3d(1.1, 1.1, 1), webkit);
+		}
+	}
 	img {
 		max-width: none;
 		object-fit: cover;
@@ -35,25 +54,6 @@
 		}
 		&:nth-of-type(3) {
 			@include prefix(transition-delay, 0.05s, webkit);
-		}
-	}
-	&:hover {
-		p {
-			&:first-child {
-				@include prefix(transition-delay, 0s, webkit);
-			}
-			&:nth-of-type(2) {
-				@include prefix(transition-delay, 0.05s, webkit);
-			}
-			&:nth-of-type(3) {
-				@include prefix(transition-delay, 0.1s, webkit);
-			}
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		img {
-			opacity: 0.4;
-			@include prefix(transform, scale3d(1.1, 1.1, 1), webkit);
 		}
 	}
 }

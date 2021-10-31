@@ -1,4 +1,4 @@
-.effect-lexi {
+.e-image-item.effect-lexi {
 	background: -webkit-linear-gradient(-45deg, #000 0%, #fff 100%);
 	background: linear-gradient(-45deg, #000 0%, #fff 100%);
 	img {
@@ -34,7 +34,7 @@
 		opacity: 0;
 		@include prefix(transform, translate3d(20px, 20px, 0), webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.6;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);

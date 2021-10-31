@@ -1,4 +1,4 @@
-.effect-kira {
+.e-image-item.effect-kira {
 	background: #fff;
 	text-align: left;
 	img {
@@ -36,7 +36,7 @@
 			}
 		}
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.5;
 		}

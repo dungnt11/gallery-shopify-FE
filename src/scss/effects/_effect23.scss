@@ -1,4 +1,4 @@
-.effect-apollo {
+.e-image-item.effect-apollo {
 	background: #3498db;
 	img {
 		opacity: 0.95;
@@ -31,7 +31,7 @@
 	h2 {
 		text-align: left;
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.6;
 			@include prefix(transform, scale3d(1, 1, 1), webkit);

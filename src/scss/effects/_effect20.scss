@@ -1,11 +1,11 @@
-.effect-selena {
+.e-image-item.effect-selena {
 	background: #fff;
 	img {
 		opacity: 0.95;
 		@include prefix(transition, transform 0.35s, webkit);
 		@include prefix(transform-origin, 50% 50%, webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			@include prefix(transform, scale3d(0.95, 0.95, 1), webkit);
 		}

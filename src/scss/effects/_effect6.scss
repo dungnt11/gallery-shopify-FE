@@ -1,5 +1,33 @@
-.effect-layla {
+.e-image-item.effect-layla {
 	background: #18a367;
+	&:hover, &.effect-hover {
+		img {
+			opacity: 0.7;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+			@include prefix(transition-delay, 0.15s, webkit);
+		}
+		figcaption {
+			&::before {
+				opacity: 1;
+				@include prefix(transform, scale(1), webkit);
+			}
+			&::after {
+				opacity: 1;
+				@include prefix(transform, scale(1), webkit);
+				@include prefix(transition-delay, 0.15s, webkit);
+			}
+		}
+		h2 {
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+			@include prefix(transition-delay, 0.15s, webkit);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+			@include prefix(transition-delay, 0.15s, webkit);
+		}
+	}
 	img {
 		width: 100%;
 		height: calc(100% + 40px) !important;
@@ -44,33 +72,5 @@
 		opacity: 0;
 		@include prefix(transform, translate3d(0, -10px, 0), webkit);
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-	}
-	&:hover {
-		img {
-			opacity: 0.7;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-			@include prefix(transition-delay, 0.15s, webkit);
-		}
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-			}
-			&::after {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-				@include prefix(transition-delay, 0.15s, webkit);
-			}
-		}
-		h2 {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-			@include prefix(transition-delay, 0.15s, webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-			@include prefix(transition-delay, 0.15s, webkit);
-		}
 	}
 }

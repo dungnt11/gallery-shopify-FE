@@ -1,4 +1,4 @@
-.effect-terry {
+.e-image-item.effect-terry {
 	background: #34495e;
 	figcaption {
 		padding: 1em;
@@ -57,7 +57,7 @@
 		-webkit-transform: translate3d(100%, 0, 0);
 		transform: translate3d(100%, 0, 0);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		figcaption {
 			&::before {
 				@include prefix(transform, translate3d(0, 0, 0), webkit);

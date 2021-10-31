@@ -1,6 +1,25 @@
-.effect-oscar {
+.e-image-item.effect-oscar {
 	background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
 	background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
+	&:hover, &.effect-hover {
+		h2 {
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+		figcaption {
+			&::before {
+				opacity: 1;
+				@include prefix(transform, scale(1), webkit);
+			}
+			background-color: rgba(58, 52, 42, 0);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, scale(1), webkit);
+		}
+		img {
+			opacity: 0.4;
+		}
+	}
 	img {
 		opacity: 0.9;
 		@include prefix(transition, opacity 0.35s, webkit);
@@ -37,24 +56,5 @@
 		opacity: 0;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, scale(0), webkit);
-	}
-	&:hover {
-		h2 {
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-			}
-			background-color: rgba(58, 52, 42, 0);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, scale(1), webkit);
-		}
-		img {
-			opacity: 0.4;
-		}
 	}
 }

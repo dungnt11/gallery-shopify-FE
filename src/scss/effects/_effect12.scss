@@ -1,10 +1,10 @@
-.effect-dexter {
+.e-image-item.effect-dexter {
 	background: -webkit-linear-gradient(top, rgba(37, 141, 200, 1) 0%, rgba(104, 60, 19, 1) 100%);
 	background: linear-gradient(to bottom, rgba(37, 141, 200, 1) 0%, rgba(104, 60, 19, 1) 100%);
 	img {
 		@include prefix(transition, opacity 0.35s, webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.4;
 		}

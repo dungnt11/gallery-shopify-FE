@@ -1,9 +1,9 @@
-.effect-chico {
+.e-image-item.effect-chico {
 	img {
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, scale(1.12), webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.5;
 			@include prefix(transform, scale(1), webkit);

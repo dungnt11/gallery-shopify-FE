@@ -1,5 +1,29 @@
-.effect-hera {
+.e-image-item.effect-hera {
 	background: #303fa9;
+	&:hover, &.effect-hover {
+		figcaption {
+			&::before {
+				opacity: 1;
+				@include prefix(
+					transform,
+					translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1),
+					webkit
+				);
+			}
+		}
+		h2 {
+			opacity: 0;
+			@include prefix(transform, translate3d(-50%, -50%, 0) scale3d(0.8, 0.8, 1), webkit);
+		}
+		p {
+			i {
+				&:empty {
+					@include prefix(transform, translate3d(0, 0, 0), webkit);
+					opacity: 1;
+				}
+			}
+		}
+	}
 	h2 {
 		font-size: 158.75%;
 		@include absolute(top 50% left 50%);
@@ -60,30 +84,6 @@
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 			@include prefix(transform, late3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1), webkit);
 			@include prefix(transform-origin, 50%, webkit);
-		}
-	}
-	&:hover {
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(
-					transform,
-					translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1),
-					webkit
-				);
-			}
-		}
-		h2 {
-			opacity: 0;
-			@include prefix(transform, translate3d(-50%, -50%, 0) scale3d(0.8, 0.8, 1), webkit);
-		}
-		p {
-			i {
-				&:empty {
-					@include prefix(transform, translate3d(0, 0, 0), webkit);
-					opacity: 1;
-				}
-			}
 		}
 	}
 }

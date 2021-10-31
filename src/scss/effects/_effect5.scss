@@ -1,11 +1,11 @@
-.effect-romeo {
+.e-image-item.effect-romeo {
 	-webkit-perspective: 1000px;
 	perspective: 1000px;
 	img {
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, translate3d(0, 0, 300px), webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.6;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);

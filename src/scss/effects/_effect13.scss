@@ -1,4 +1,4 @@
-figure.effect-sarah {
+.e-image-item.effect-sarah {
 	background: #42b078;
 	img {
 		max-width: none;
@@ -8,7 +8,7 @@ figure.effect-sarah {
 		@include prefix(transform, translate3d(-10px, 0, 0), webkit);
 		@include prefix(backface-visibility, hidden, webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.4;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);

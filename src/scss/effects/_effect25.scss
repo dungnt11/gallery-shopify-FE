@@ -1,4 +1,4 @@
-.effect-steve {
+.e-image-item.effect-steve {
 	z-index: auto;
 	background: #000;
 	&:before {
@@ -45,7 +45,7 @@
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, scale3d(0.9, 0.9, 1), webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		&:before {
 			opacity: 1;
 		}

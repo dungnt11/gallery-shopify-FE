@@ -1,4 +1,4 @@
-.effect-jazz {
+.e-image-item.effect-jazz {
 	background: -webkit-linear-gradient(-45deg, #f3cf3f 0%, #f33f58 100%);
 	background: linear-gradient(-45deg, #f3cf3f 0%, #f33f58 100%);
 	img {
@@ -36,7 +36,7 @@
 		padding-top: 26%;
 		@include prefix(transition, transform 0.35s, webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.7;
 			@include prefix(transform, scale3d(1.05, 1.05, 1), webkit);

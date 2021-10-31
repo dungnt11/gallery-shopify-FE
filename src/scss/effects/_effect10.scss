@@ -1,11 +1,11 @@
-.effect-ruby {
+.e-image-item.effect-ruby {
 	background-color: #17819c;
 	img {
 		opacity: 0.7;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, scale(1.15), webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.5;
 			@include prefix(transform, scale(1), webkit);

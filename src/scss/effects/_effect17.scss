@@ -1,5 +1,17 @@
-.effect-goliath {
+.e-image-item.effect-goliath {
 	background: #df4e4e;
+	&:hover, &.effect-hover {
+		img {
+			@include prefix(transform, translate3d(0, -80px, 0), webkit);
+		}
+		h2 {
+			@include prefix(transform, translate3d(0, -100px, 0), webkit);
+		}
+		p {
+			opacity: 1;
+			@include prefix(transform, translate3d(0, 0, 0), webkit);
+		}
+	}
 	img {
 		@include prefix(transition, transform 0.35s, webkit);
 		@include prefix(backface-visibility, hidden, webkit);
@@ -17,17 +29,5 @@
 		opacity: 0;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, translate3d(0, 50px, 0), webkit);
-	}
-	&:hover {
-		img {
-			@include prefix(transform, translate3d(0, -80px, 0), webkit);
-		}
-		h2 {
-			@include prefix(transform, translate3d(0, -100px, 0), webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
 	}
 }

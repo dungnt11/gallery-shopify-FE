@@ -1,4 +1,4 @@
-.effect-moses {
+.e-image-item.effect-moses {
 	background: -webkit-linear-gradient(-45deg, #ec65b7 0%, #05e0d8 100%);
 	background: linear-gradient(-45deg, #ec65b7 0%, #05e0d8 100%);
 	img {
@@ -27,7 +27,7 @@
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, translate3d(-50%, -50%, 0), webkit);
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		h2 {
 			@include prefix(transform, translate3d(0, 0, 0), webkit);
 		}

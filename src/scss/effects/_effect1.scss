@@ -1,5 +1,5 @@
-.effect-lily {
-	&:hover {
+.e-image-item.effect-lily {
+	&:hover, &.effect-hover {
 		img, p {
 			opacity: 1;
 		}
@@ -13,14 +13,6 @@
 	}
 	figcaption {
 		text-align: left;
-		> div {
-			@include absolute(bottom 0 left 0);
-			@include box(100%);
-			@include flexbox();
-			@include flex-direction(column);
-			@include justify-content(flex-end);
-			padding: 2em;
-		}
 	}
 	img {
 		max-width: none;

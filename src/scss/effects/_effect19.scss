@@ -1,4 +1,4 @@
-.effect-winston {
+.e-image-item.effect-winston {
 	background: #162633;
 	text-align: left;
 	img {
@@ -43,7 +43,7 @@
 			color: #cc6055;
 		}
 	}
-	&:hover {
+	&:hover, &.effect-hover {
 		img {
 			opacity: 0.6;
 		}
