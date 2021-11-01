@@ -89,7 +89,7 @@ class Gallery {
   buildImageGallery(galleryDB, galleryHandle) {
     const { images, gallery } = galleryDB;
     const { settings } = gallery;
-    const { scrollAnimation } = settings;
+    const { scrollAnimation, parallax } = settings;
     const { animation, anchorPlacements, easingFunctions } = scrollAnimation;
 
     let imagesDOM = '';
@@ -109,7 +109,7 @@ class Gallery {
           ${this.isPreview ? 'data-aos-anchor="body"' : ''}
         >
           <a href="${image.src}" class="glightbox">
-            ${effectBase(image)}
+            ${effectBase(image, parallax)}
           </a>
         </div>
       `;
@@ -124,6 +124,15 @@ class Gallery {
           }
       `);
       });
+    });
+    window.addEventListener('scroll', function(e) {
+      const target = document.querySelectorAll('.parallax');
+      var index = 0, length = target.length;
+      for (index; index < length; index++) {
+          var pos = window.pageYOffset * target[index].dataset.rate;
+  
+          target[index].style.transform = 'translate3d(0px,'+pos+'px, 0px)';
+      }
     });
 
     return imagesDOM;
