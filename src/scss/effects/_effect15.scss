@@ -21,6 +21,10 @@
 	}
 	figcaption {
 		padding: 3em;
+		@include flexbox();
+		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);
 		&::before {
 			@include absolute(top 30px right 30px bottom 30px left 30px);
 			border: 1px solid #fff;

@@ -16,12 +16,7 @@
 			@include prefix(transform, translate3d(-50%, -50%, 0) scale3d(0.8, 0.8, 1), webkit);
 		}
 		p {
-			i {
-				&:empty {
-					@include prefix(transform, translate3d(0, 0, 0), webkit);
-					opacity: 1;
-				}
-			}
+			opacity: 1;
 		}
 	}
 	h2 {
@@ -40,49 +35,17 @@
 		text-transform: none;
 		font-size: 121%;
 		line-height: 2;
-		a {
-			color: #fff;
-			&:hover {
-				opacity: 0.6;
-			}
-			&:focus {
-				opacity: 0.6;
-			}
-			i {
-				opacity: 0;
-				@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			}
-			&:first-child {
-				i {
-					@include prefix(transform, translate3d(-60px, -60px, 0), webkit);
-				}
-			}
-			&:nth-child(2) {
-				i {
-					@include prefix(transform, translate3d(60px, -60px, 0), webkit);
-				}
-			}
-			&:nth-child(3) {
-				i {
-					@include prefix(transform, translate3d(-60px, 60px, 0), webkit);
-				}
-			}
-			&:nth-child(4) {
-				i {
-					@include prefix(transform, translate3d(60px, 60px, 0), webkit);
-				}
-			}
-		}
+		opacity: 0;
 	}
 	figcaption {
 		&::before {
 			@include absolute(top 50% left 50%);
-			@include box(200px);
+			@include box(150px);
 			border: 2px solid #fff;
 			content: "";
 			opacity: 0;
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			@include prefix(transform, late3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1), webkit);
+			@include prefix(transform, translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -45deg) scale3d(0, 0, 1), webkit);
 			@include prefix(transform-origin, 50%, webkit);
 		}
 	}
