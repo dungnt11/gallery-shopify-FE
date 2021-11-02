@@ -23,30 +23,35 @@ class Gallery {
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
 
     if (galleriesDOM.length) {
-      await Promise.all(Array.from(galleriesDOM).map((galleryDOMItem) => this.genGallery(galleryDOMItem)));
+      let isInitParallax = false;
+      let isInitAos = false;
+
+      await Promise.all(Array.from(galleriesDOM).map((galleryDOMItem) => this.genGallery(galleryDOMItem, (settingsGallery) => {
+        // Callback gallery, chỉ cần 1 gallery có cái này sẽ enable
+        if (settingsGallery.parallax.enable) isInitParallax = true;
+        if (settingsGallery.scrollAnimation.enable) isInitAos = true;
+      })));
       // Gen css cho toàn bộ gallery
       injectCSSToHead(this.cssBase);
-      this.aos = AOS.init({
-        startEvent: 'DOMContentLoaded',
-      });
-      this.glightbox = GLightbox({
-        startEvent: 'DOMContentLoaded',
-      });
+
+      if (isInitParallax) {
+        this.genParallaxEffect();
+      }
+      if (isInitAos) {
+        this.aos = AOS.init({ startEvent: 'DOMContentLoaded' });
+      }
+      this.glightbox = GLightbox({ startEvent: 'DOMContentLoaded' });
     }
   }
 
-  async genGallery(galleryDOMArg) {
+  async genGallery(galleryDOMArg, cb) {
     try {
       const galleryHandle = galleryDOMArg.getAttribute('data-id');
       galleryDOMArg.innerHTML = this.loadingDOM;
       const galleryDB = await getJsonByShop(galleryHandle);
+      cb(galleryDB.gallery.settings)
       this.buildGalleryCss(galleryHandle, galleryDB);
       galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB, galleryHandle);
-
-      // Effect parallax
-      if (galleryDB.gallery.settings.parallax.enable) {
-        this.genParallaxEffect();
-      }
     } catch (error) {
       // Nếu có lỗi sẽ thông báo ở đây
       console.log(error);
@@ -93,23 +98,28 @@ class Gallery {
     const { images, gallery } = galleryDB;
     const { settings } = gallery;
     const { scrollAnimation, parallax } = settings;
-    const { animation, anchorPlacements, easingFunctions } = scrollAnimation;
+    const {
+      enable,
+      animation,
+      anchorPlacements,
+      easingFunctions,
+    } = scrollAnimation;
 
     let imagesDOM = '';
 
     images.forEach((image) => {
       imagesDOM += `
         <div
-          class="e-gallery__item"
+          class="e-gallery__item ${settings.fullWidth ? 'e-gallery__fullwidth' : ''}"
           id="${image.id}"
-          data-aos="${animation || 'zoom-in'}"
+          ${enable ? `data-aos="${animation || 'zoom-in'}"
           data-aos-offset="200"
           data-aos-delay="50"
           data-aos-duration="300"
           data-aos-easing="${easingFunctions || 'ease-in-out'}"
           data-aos-once="true"
           data-aos-anchor-placement="${anchorPlacements || 'top-center'}"
-          ${this.isPreview ? 'data-aos-anchor="body"' : ''}
+          ${this.isPreview ? 'data-aos-anchor="body"' : ''}` : ''}
         >
           <a href="${image.src}" class="glightbox">
             ${effectBase(image, parallax)}

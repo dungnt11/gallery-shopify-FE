@@ -1,10 +1,11 @@
-* {
-	box-sizing: border-box;
+.e-gallery__fullwidth {
+	width: 100% !important;
 }
 
 e-gallery-widget {
 	position: relative;
-	width: 100%;
+	width: 1200px;
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 
