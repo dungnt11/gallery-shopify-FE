@@ -4,7 +4,7 @@
  * @param imageDOM -  image DOM
  */
 function effect1(effect, imageDOM) {
-	return `<figure class="effect-lily">
+	return `<figure class="effect-lily e-image-item">
     ${imageDOM}
     <figcaption>
       <div>

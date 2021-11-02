@@ -25,6 +25,10 @@
 		}
 	}
 	figcaption {
+		@include flexbox();
+		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);
 		&::before {
 			@include absolute(top 0 left 0);
 			@include box(100%);
@@ -37,10 +41,8 @@
 		}
 	}
 	h2 {
-		margin-top: 1em;
-		-webkit-transition: transform 0.35s;
-		transition: transform 0.35s;
-		@include prefix(transform, translate3d(0, 40px, 0), webkit);
+		@include prefix(transition, (transform 0.35s), webkit);
+		@include prefix(transform, translate3d(0, 50px, 0), webkit);
 	}
 	p {
 		a {
@@ -51,16 +53,13 @@
 			display: inline-block;
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 			&:first-child {
-				-webkit-transform: translate3d(-60px, -60px, 0);
-				transform: translate3d(-60px, -60px, 0);
+				@include prefix(transform, translate3d(-60px, -60px, 0), webkit);
 			}
 			&:nth-child(2) {
-				-webkit-transform: translate3d(0, 60px, 0);
-				transform: translate3d(0, 60px, 0);
+				@include prefix(transform, translate3d(0, 60px, 0), webkit);
 			}
 			&:nth-child(3) {
-				-webkit-transform: translate3d(60px, -60px, 0);
-				transform: translate3d(60px, -60px, 0);
+				@include prefix(transform, translate3d(60px, -60px, 0), webkit);
 			}
 		}
 	}

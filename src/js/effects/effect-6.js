@@ -4,11 +4,11 @@
  * @param imageDOM -  image DOM
  */
 function effect6(effect, imageDOM) {
-	return `<figure class="effect-oscar">
+	return `<figure class="effect-oscar e-image-item">
     ${imageDOM}
     <figcaption>
-      <h2>Warm <span>Oscar</span></h2>
-      <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
+      <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

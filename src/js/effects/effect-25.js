@@ -4,12 +4,11 @@
  * @param imageDOM -  image DOM
  */
 function effect25(effect, imageDOM) {
-	return `<figure class="effect-steve">
+	return `<figure class="effect-steve e-image-item">
     ${imageDOM}
     <figcaption>
-      <h2>Lonely <span>Steve</span></h2>
-      <p>Steve was afraid of the Boogieman.</p>
-      <a href="#">View more</a>
+      <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

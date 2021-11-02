@@ -4,11 +4,11 @@
  * @param imageDOM -  image DOM
  */
 function effect17(effect, imageDOM) {
-	return `<figure class="effect-goliath">
+	return `<figure class="effect-goliath e-image-item">
     ${imageDOM}
     <figcaption>
-      <h2>Thoughtful <span>Goliath</span></h2>
-      <p>When Goliath comes out, you should run.</p>
+      <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

@@ -35,9 +35,13 @@
 		}
 		padding: 3em;
 		text-align: left;
+		height: 100%;
+		@include flexbox();
+		@include flex-direction(column);
+		@include justify-content(center);
 	}
 	h2 {
-		padding: 15% 0 10px 0;
+		padding: 0 0 10px 0;
 	}
 	p {
 		opacity: 0;

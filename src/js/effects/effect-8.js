@@ -4,11 +4,11 @@
  * @param imageDOM -  image DOM
  */
 function effect8(effect, imageDOM) {
-	return `<figure class="effect-ruby">
+	return `<figure class="effect-ruby e-image-item">
   ${imageDOM}
     <figcaption>
-      <h2>Glowing <span>Ruby</span></h2>
-      <p>Ruby did not need any help. Everybody knew that.</p>
+      <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

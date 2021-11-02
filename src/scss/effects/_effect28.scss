@@ -5,6 +5,10 @@
 		@include prefix(transition, opacity 0.35s, webkit);
 	}
 	figcaption {
+		@include flexbox();
+		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);
 		&::before {
 			@include absolute(top 30px right 30px bottom 30px left 30px);
 			border: 2px solid #fff;
@@ -16,7 +20,7 @@
 		}
 	}
 	h2 {
-		margin: 20% 0 10px 0;
+		margin: 0 0 10px 0;
 		@include prefix(transition, transform 0.35s, webkit);
 	}
 	p {

@@ -4,15 +4,11 @@
  * @param imageDOM -  image DOM
  */
 function effect22(effect, imageDOM) {
-	return `<figure class="effect-phoebe">
+	return `<figure class="effect-phoebe e-image-item">
     ${imageDOM}
     <figcaption>
-      <h2>Plain <span>Phoebe</span></h2>
-      <p>
-        <a href="#"><i class="fa fa-fw fa-user"></i></a>
-        <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-        <a href="#"><i class="fa fa-fw fa-cog"></i></a>
-      </p>
+      <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

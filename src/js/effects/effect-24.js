@@ -4,16 +4,11 @@
  * @param imageDOM -  image DOM
  */
 function effect24(effect, imageDOM) {
-	return `<figure class="effect-kira">
+	return `<figure class="effect-kira e-image-item">
     ${imageDOM}
     <figcaption>
-      <h2>Dark <span>Kira</span></h2>
-      <p>
-        <a href="#"><i class="fa fa-fw fa-home"></i></a>
-        <a href="#"><i class="fa fa-fw fa-download"></i></a>
-        <a href="#"><i class="fa fa-fw fa-heart"></i></a>
-        <a href="#"><i class="fa fa-fw fa-share"></i></a>
-      </p>
+      <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }
