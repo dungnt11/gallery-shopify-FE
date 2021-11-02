@@ -6,9 +6,9 @@ function effectBase(image, parallax) {
 	const { type } = effect;
 	const { enable } = parallax;
 
-	const imageDOM = `<img class="e-gallery__image${enable ? ' parallax' : ''}" 
-							${enable ? 'data-rate="0.3"' : ''}  
-							alt="${alt}" src="${src}" />`;
+	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
+	const dataRate = enable ? 'data-rate="0.3"' : '';
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" src="${src}" />`;
 
 	switch (type) {
 		case 'effect1': {

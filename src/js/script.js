@@ -1,22 +1,21 @@
 import AOS from 'aos';
 import GLightbox from 'glightbox';
 import { getJsonByShop } from './helper/get-json';
-import { LOADING_SVG } from './constant';
+import { effectBase } from './effects';
+import { DISPLAY, LOADING_SVG } from './constant';
 import { genResponsiveCode } from './helper/responsive';
 import { injectCSSToHead } from './helper/injectCSStoHead';
-import { effectBase } from './effects';
 
 class Gallery {
   constructor() {
     this.loadingDOM = LOADING_SVG;
-    this.responsiveArr = ['xs', 'sm', 'md', 'lg', 'xl'];
     this.cssBase = '';
     this.aos = null;
+    this.glightbox = null;
     /**
      * Khi preview mỗi gallery, từ app thì cái này sẽ là true
      * Cái này dùng để active hiệu ứng aos khi user cuộn chuột xuống
      */
-    this.glightbox = null;
     this.isPreview = false;
   }
   
@@ -43,6 +42,11 @@ class Gallery {
       const galleryDB = await getJsonByShop(galleryHandle);
       this.buildGalleryCss(galleryHandle, galleryDB);
       galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB, galleryHandle);
+
+      // Effect parallax
+      if (galleryDB.gallery.settings.parallax.enable) {
+        this.genParallaxEffect();
+      }
     } catch (error) {
       // Nếu có lỗi sẽ thông báo ở đây
       console.log(error);
@@ -60,8 +64,7 @@ class Gallery {
       // Gap grid
       rowGap, columnGap,
     } = gallery;
-
-    this.responsiveArr.forEach((display) => {
+    DISPLAY.forEach((display) => {
       this.cssBase += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] {
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
@@ -114,7 +117,7 @@ class Gallery {
         </div>
       `;
 
-      this.responsiveArr.forEach((display) => {
+      DISPLAY.forEach((display) => {
         const layoutObj = image.layout[display];
 
         this.cssBase += genResponsiveCode(display, `
@@ -125,17 +128,19 @@ class Gallery {
       `);
       });
     });
-    window.addEventListener('scroll', function(e) {
-      const target = document.querySelectorAll('.parallax');
-      var index = 0, length = target.length;
-      for (index; index < length; index++) {
-          var pos = window.pageYOffset * target[index].dataset.rate;
-  
-          target[index].style.transform = 'translate3d(0px,'+pos+'px, 0px)';
-      }
-    });
 
     return imagesDOM;
+  }
+
+  genParallaxEffect() {
+    window.addEventListener('scroll', function() {
+      const target = document.querySelectorAll('.parallax');
+      let index = 0, length = target.length;
+      for (index; index < length; index++) {
+          const pos = window.pageYOffset * target[index].dataset.rate;
+          target[index].style.transform = `translate3d(0px,${pos}px, 0px)`;
+      }
+    });
   }
 }
 

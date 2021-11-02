@@ -21,4 +21,6 @@ const LOADING_SVG = `<svg class="page-loader" width="100" height="100" viewBox="
 <rect class="gradient" clip-path="url('#clip')" height="300" width="300"></rect>
 </svg>`;
 
-export { LOADING_SVG };
+const DISPLAY = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+export { LOADING_SVG, DISPLAY };
