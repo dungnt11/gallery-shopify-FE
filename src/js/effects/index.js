@@ -29,10 +29,11 @@ import { effect28 } from './effect-28';
 import { effect29 } from './effect-29';
 import { effect30 } from './effect-30';
 
-function effectBase(image, parallax) {
+function effectBase(image, parallax, box) {
 	const { effect, src, alt } = image;
 	const { type } = effect;
 	const { enable } = parallax;
+	const { radiusImage } = box;
 
 	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
 	const dataRate = enable ? 'data-rate="0.3"' : '';

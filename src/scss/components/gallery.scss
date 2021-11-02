@@ -8,17 +8,21 @@ e-gallery-widget {
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
+	* {
+		box-sizing: border-box;
+	}
 
 	.e-gallery__item img {
 		@include box(100%);
 		object-fit: cover;
 		&.parallax {
-			height: 200px;
+			height: 200%;
 			top: -50%;
 		}
 	}
 	figure {
 		@include box(100%);
+		margin: 0;
 	}
 }
 

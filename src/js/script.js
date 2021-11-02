@@ -69,11 +69,19 @@ class Gallery {
       // Gap grid
       rowGap, columnGap,
     } = gallery;
+
+    const { background, box } = settings;
+
     DISPLAY.forEach((display) => {
       this.cssBase += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] {
+          background: ${background.solid.color};
+          border-radius: ${box.radius}px;
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
           grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px)
+        }
+        e-gallery-widget[data-id="${galleryHandle}"] .e-image-item {
+          border-radius: ${box.radiusImage}px;
         }
       `);
     });
@@ -97,7 +105,7 @@ class Gallery {
   buildImageGallery(galleryDB, galleryHandle) {
     const { images, gallery } = galleryDB;
     const { settings } = gallery;
-    const { scrollAnimation, parallax } = settings;
+    const { scrollAnimation, parallax, box } = settings;
     const {
       enable,
       animation,
@@ -122,7 +130,7 @@ class Gallery {
           ${this.isPreview ? 'data-aos-anchor="body"' : ''}` : ''}
         >
           <a href="${image.src}" class="glightbox">
-            ${effectBase(image, parallax)}
+            ${effectBase(image, parallax, box)}
           </a>
         </div>
       `;
