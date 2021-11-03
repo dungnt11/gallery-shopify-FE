@@ -52,6 +52,7 @@ class Gallery {
       cb(galleryDB.gallery.settings)
       this.buildGalleryCss(galleryHandle, galleryDB);
       galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB, galleryHandle);
+      galleryDOMArg.insertAdjacentHTML('beforebegin', this.genTitleAndDescription(galleryDB.gallery.title, galleryDB.gallery.description));
     } catch (error) {
       // Nếu có lỗi sẽ thông báo ở đây
       console.log(error);
@@ -160,6 +161,12 @@ class Gallery {
           target[index].style.transform = `translate3d(0px,${pos}px, 0px)`;
       }
     });
+  }
+
+  // ! Bố sửa lại cái này cho con
+  genTitleAndDescription(title = '', description = '') {
+    return `<div>${title}</div>
+    <div>${description}</div>`
   }
 }
 
