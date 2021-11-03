@@ -52,7 +52,7 @@ class Gallery {
       cb(galleryDB.gallery.settings)
       this.buildGalleryCss(galleryHandle, galleryDB);
       galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB, galleryHandle);
-      galleryDOMArg.insertAdjacentHTML('beforebegin', this.genTitleAndDescription(galleryDB.gallery.title, galleryDB.gallery.description));
+      galleryDOMArg.insertAdjacentHTML('beforebegin', this.genTitleAndDescription(galleryDB.gallery.title, galleryDB.gallery.description, galleryDB.gallery.positionTitle));
     } catch (error) {
       // Nếu có lỗi sẽ thông báo ở đây
       console.log(error);
@@ -72,11 +72,27 @@ class Gallery {
     } = gallery;
 
     const { background, box } = settings;
+    const { type, solid, gradient, image } = background;
+
+    let bg = '';
+    switch(type) {
+      case 'solid':
+        bg = solid.color;
+        break;
+      case 'gradient':
+        bg = `linear-gradient(${gradient.angle}deg, ${gradient.gradient[0].color} ${gradient.gradient[0].offset * 100}%, ${gradient.gradient[1].color} ${gradient.gradient[1].offset * 100}%, ${gradient.gradient[2].color} ${gradient.gradient[2].offset * 100}%)`;
+        break;
+      case 'image':
+        bg = `url(${image}) no-repeat center center;background-size:cover`;
+        break;
+      default:
+        break;
+    }
 
     DISPLAY.forEach((display) => {
       this.cssBase += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] {
-          background: ${background.solid.color};
+          background: ${bg};
           border-radius: ${box.radius}px;
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
           grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px);
@@ -164,9 +180,11 @@ class Gallery {
   }
 
   // ! Bố sửa lại cái này cho con
-  genTitleAndDescription(title = '', description = '') {
-    return `<div>${title}</div>
-    <div>${description}</div>`
+  genTitleAndDescription(title = '', description = '', position = '') {
+    return `<div class="e-gallery__heading ${position}">
+      <div class="e-gallery__heading--title">${title}</div>
+      <div class="e-gallery__heading--description">${description}</div>
+    </div>`
   }
 }
 

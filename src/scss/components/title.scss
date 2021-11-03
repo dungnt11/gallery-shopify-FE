@@ -8,4 +8,17 @@
     &.Right {
         text-align: right;
     }
+    &--title {
+        font-size: 2.1875em;
+        text-transform: none;
+        letter-spacing: 0;
+        font-family: Work Sans,sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    &--description {
+        color: #69727b;
+        margin: 0 0 19.44444px;
+    }
 }
