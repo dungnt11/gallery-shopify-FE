@@ -8,7 +8,7 @@ function effect15(effect, imageDOM) {
     ${imageDOM}
     <figcaption>
       <h2>${effect.title}</h2>
-      <p>${effect.description}/p>
+      <p>${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

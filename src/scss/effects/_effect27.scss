@@ -7,6 +7,7 @@
 	}
 	figcaption {
 		@include flexbox();
+		@include flex-direction(column);
 		@include align-items(center);
 		@include justify-content(center);
 		&::after {
@@ -33,7 +34,6 @@
 	h2 {
 		opacity: 1;
 		@include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
-		padding-top: 26%;
 		@include prefix(transition, transform 0.35s, webkit);
 	}
 	&:hover, &.effect-hover {
