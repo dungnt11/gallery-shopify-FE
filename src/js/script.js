@@ -78,7 +78,8 @@ class Gallery {
           background: ${background.solid.color};
           border-radius: ${box.radius}px;
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
-          grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px)
+          grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px);
+          width: calc(${settings.fullWidth.enable ? `${settings.fullWidth.precentWidth}%` : '100%'} - 20px);
         }
         e-gallery-widget[data-id="${galleryHandle}"] .e-image-item {
           border-radius: ${box.radiusImage}px;
@@ -118,7 +119,7 @@ class Gallery {
     images.forEach((image) => {
       imagesDOM += `
         <div
-          class="e-gallery__item ${settings.fullWidth ? 'e-gallery__fullwidth' : ''}"
+          class="e-gallery__item"
           id="${image.id}"
           ${enable ? `data-aos="${animation || 'zoom-in'}"
           data-aos-offset="200"
