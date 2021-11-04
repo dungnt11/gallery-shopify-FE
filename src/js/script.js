@@ -94,6 +94,7 @@ class Gallery {
       this.cssBase += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] {
           background: ${bg};
+          border: ${box.width}px ${box.style} ${box.color.color};
           border-radius: ${box.radius}px;
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
           grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px);
