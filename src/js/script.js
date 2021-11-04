@@ -5,6 +5,7 @@ import { effectBase } from './effects';
 import { DISPLAY, LOADING_SVG } from './constant';
 import { genResponsiveCode } from './helper/responsive';
 import { injectCSSToHead } from './helper/injectCSStoHead';
+import { getGradientPreview } from './helper/get-gradient';
 
 class Gallery {
   constructor() {
@@ -52,7 +53,7 @@ class Gallery {
       cb(galleryDB.gallery.settings)
       this.buildGalleryCss(galleryHandle, galleryDB);
       galleryDOMArg.innerHTML = this.buildImageGallery(galleryDB, galleryHandle);
-      galleryDOMArg.insertAdjacentHTML('beforebegin', this.genTitleAndDescription(galleryDB.gallery.title, galleryDB.gallery.description, galleryDB.gallery.positionTitle));
+      galleryDOMArg.insertAdjacentHTML('beforebegin', this.genTitleAndDescription(galleryDB.gallery));
     } catch (error) {
       // Nếu có lỗi sẽ thông báo ở đây
       console.log(error);
@@ -72,7 +73,7 @@ class Gallery {
     } = gallery;
 
     const { background, box } = settings;
-    const { type, solid, gradient, image } = background;
+    const { type, solid, gradient, image, animationGradient } = background;
 
     let bg = '';
     switch(type) {
@@ -80,7 +81,7 @@ class Gallery {
         bg = solid.color;
         break;
       case 'gradient':
-        bg = `linear-gradient(${gradient.angle}deg, ${gradient.gradient[0].color} ${gradient.gradient[0].offset * 100}%, ${gradient.gradient[1].color} ${gradient.gradient[1].offset * 100}%, ${gradient.gradient[2].color} ${gradient.gradient[2].offset * 100}%)`;
+        bg = getGradientPreview(gradient.gradient, gradient.angle).background;
         break;
       case 'image':
         bg = `url(${image}) no-repeat center center;background-size:cover`;
@@ -97,6 +98,10 @@ class Gallery {
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
           grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px);
           width: calc(${settings.fullWidth.enable ? `${settings.fullWidth.precentWidth}%` : '100%'} - 20px);
+          ${animationGradient ? `
+          background-size: 400% 400% !important;
+          animation: e-gallery-gradient 15s ease infinite;
+          ` : ''}
         }
         e-gallery-widget[data-id="${galleryHandle}"] .e-image-item {
           border-radius: ${box.radiusImage}px;
@@ -180,8 +185,9 @@ class Gallery {
   }
 
   // ! Bố sửa lại cái này cho con
-  genTitleAndDescription(title = '', description = '', position = '') {
-    return `<div class="e-gallery__heading ${position}">
+  genTitleAndDescription(gallerySettings) {
+    const { title, description, positionTitle } = gallerySettings;
+    return `<div class="e-gallery__heading ${positionTitle}">
       <div class="e-gallery__heading--title">${title}</div>
       <div class="e-gallery__heading--description">${description}</div>
     </div>`
