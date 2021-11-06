@@ -19,9 +19,7 @@ class Gallery {
       const [galleryHandle, galleryDB] = await loadingFn(galleryDOMArg);
       const cssLayout = buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle);
       injectCSSToHead(cssLayout);
-
       titleAndDescriptionFnc(galleryDOMArg, galleryDB.gallery);
-
       if (galleryDB.gallery.settings.parallax.enable) isInitParallax = true;
       if (galleryDB.gallery.settings.scrollAnimation.enable) isInitAos = true;
     }));

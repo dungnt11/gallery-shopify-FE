@@ -1,4 +1,6 @@
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -31,7 +33,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: "babel-loader"
+        use: ["babel-loader"]
       },
       {
         test: /\.scss$/,
@@ -41,10 +43,10 @@ module.exports = {
           "sass-loader"
         ]
       },
-      {
-        test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
-        loader: 'url-loader?limit=100000'
-      },
+      // {
+      //   test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/,
+      //   loader: 'url-loader?limit=100000'
+      // },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -68,10 +70,17 @@ module.exports = {
         // }
       ]
     }),
+    new UnminifiedWebpackPlugin(),
   ].concat(htmlPlugins),
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 8000
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new UglifyJsPlugin({
+      include: /\.min\.js$/,
+    })],
   }
 };

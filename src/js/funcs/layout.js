@@ -59,7 +59,6 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
       cssAppend += buildBackgroundFn(galleryHandle, background);
     });
   });
-
   galleryDOMArg.innerHTML = imagesDOM;
   return cssAppend;
 }
