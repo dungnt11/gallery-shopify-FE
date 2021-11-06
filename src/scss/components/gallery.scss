@@ -21,6 +21,10 @@ e-gallery-widget {
 		@include box(100%);
 		margin: 0;
 	}
+
+	.e-gallery_hidden {
+		display: none;
+	}
 }
 
 /* Common style */

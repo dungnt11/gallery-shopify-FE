@@ -1,3 +1,4 @@
+import { effectLimit } from './limit';
 import { effect1 } from './effect-1';
 import { effect2 } from './effect-2';
 import { effect3 } from './effect-3';
@@ -166,4 +167,19 @@ function effectBase(image, parallax) {
 	}
 }
 
-export { effectBase };
+function effectLimitBase(image, galleryDB) {
+	const { src, alt } = image;
+
+	const { gallery, images } = galleryDB;
+	const { parallax, limit } = gallery.settings;
+	const { enable } = parallax;
+
+	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
+	const dataRate = enable ? 'data-rate="0.3"' : '';
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" src="${src}" />`;
+
+	const textLimit = limit.text.replace('{number}', images.length - limit.items);
+	return effectLimit(imageDOM, textLimit);
+}
+
+export { effectBase, effectLimitBase };
