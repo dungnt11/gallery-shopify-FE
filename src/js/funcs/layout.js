@@ -46,7 +46,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
   let imagesDOM = '';
   let cssAppend = '';
   const aosScrollAnimation = aosDOMFnc(galleryDB.gallery.settings.scrollAnimation);
-  
+
   images.forEach((image, ind) => {
     const lastBlock = getLastBlock(limit.enable ? images.slice(0, limit.items) : images);
     const isHideElement = (limit.enable && ind > limit.items) ? ' e-gallery_hidden' : '';

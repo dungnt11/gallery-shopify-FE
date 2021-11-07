@@ -14,7 +14,7 @@ function aosDOMFnc(scrollSettings) {
 		anchorPlacements,
 		easingFunctions,
 	} = scrollSettings;
-	if (!enable) return;
+	if (!enable) return '';
 	// galleryDOM - DOM gallery tổng
 	return `data-aos-offset=200
 	data-aos-delay=50
