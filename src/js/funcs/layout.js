@@ -79,10 +79,12 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
           width: calc(${settings.fullWidth.enable ? `${settings.fullWidth.precentWidth}%` : '100%'} - 20px);
         }
       `);
-      cssAppend += boxFn(galleryHandle, box);
-      cssAppend += buildBackgroundFn(galleryHandle, background);
     });
   });
+
+  cssAppend += boxFn(galleryHandle, box);
+  cssAppend += buildBackgroundFn(galleryHandle, background);
+
   galleryDOMArg.innerHTML = imagesDOM;
   asyncEffect(galleryDOMArg);
   return cssAppend;

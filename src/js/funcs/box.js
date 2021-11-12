@@ -1,4 +1,5 @@
 function boxFn(galleryHandle, boxSettings) {
+  if (!boxSettings.enable) return '';
   return `
     e-gallery-widget[data-id="${galleryHandle}"] .e-image-item {
       border-radius: ${boxSettings.radiusImage}px;

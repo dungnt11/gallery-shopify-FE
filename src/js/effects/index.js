@@ -36,7 +36,7 @@ function effectBase(image, parallax) {
 	const { enable } = parallax;
 
 	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
-	const dataRate = enable ? 'data-rate="0.3"' : '';
+	const dataRate = enable ? 'data-rate="0.9"' : '';
 	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" src="${src}" />`;
 
 	switch (type) {
@@ -175,7 +175,7 @@ function effectLimitBase(image, galleryDB) {
 	const { enable } = parallax;
 
 	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
-	const dataRate = enable ? 'data-rate="0.3"' : '';
+	const dataRate = enable ? 'data-rate="2"' : '';
 	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" src="${src}" />`;
 
 	const textLimit = limit.text.replace('{number}', images.length - limit.items);
