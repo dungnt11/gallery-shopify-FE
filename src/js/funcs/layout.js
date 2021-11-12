@@ -57,9 +57,17 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
         id="${image.id}"
         ${aosScrollAnimation}
       >
-        <a href="${image.src}" class="glightbox">
-          ${limit.enable && ind === limit.items ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
-        </a>
+        ${
+          (image.effect.video.enable && image.effect.video.url) ? (
+            `<a href="${image.effect.video.url}" class="glightbox">
+              ${limit.enable && ind === limit.items ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
+            </a>`
+          ) : (
+            `<a href="${image.src}" class="glightbox">
+              ${limit.enable && ind === limit.items ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
+            </a>`
+          )
+        }
       </div>
     `;
 
