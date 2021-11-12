@@ -60,11 +60,11 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
         ${
           (image.effect.video.enable && image.effect.video.url) ? (
             `<a href="${image.effect.video.url}" class="glightbox">
-              ${limit.enable && ind === limit.items ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
+              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
             </a>`
           ) : (
             `<a href="${image.src}" class="glightbox">
-              ${limit.enable && ind === limit.items ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
+              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
             </a>`
           )
         }
