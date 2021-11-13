@@ -49,6 +49,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
   images.forEach((image, ind) => {
     const lastBlock = getLastBlock(limit.enable ? images.slice(0, limit.items) : images);
     const isHideElement = (limit.enable && ind > limit.items) ? ' e-gallery_hidden' : '';
+    const marginTop = image.effect.margin;
 
     imagesDOM += `
       <div
@@ -72,11 +73,11 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
 
     DISPLAY.forEach((display) => {
       const layoutObj = image.layout[display];
-
       cssAppend += genResponsiveCode(display, `
         e-gallery-widget[data-id="${galleryHandle}"] #${image.id} {
           grid-column: ${layoutObj.x + 1}/ span ${layoutObj.w};
-          grid-row: ${layoutObj.y + 1}/ span ${layoutObj.h}
+          grid-row: ${layoutObj.y + 1}/ span ${layoutObj.h};
+          ${marginTop[display] ? `margin-top: ${marginTop[display]}px;` : ""}
         }
       `);
       cssAppend += genResponsiveCode(display, `
