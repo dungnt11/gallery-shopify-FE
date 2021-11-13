@@ -1,3 +1,4 @@
+import { createThumbnail } from '../helper/create-thumbnail';
 import { effectLimit } from './limit';
 import { effect1 } from './effect-1';
 import { effect2 } from './effect-2';
@@ -30,14 +31,15 @@ import { effect28 } from './effect-28';
 import { effect29 } from './effect-29';
 import { effect30 } from './effect-30';
 
-function effectBase(image, parallax) {
+function effectBase(image, galleryDB) {
+	const { parallax } = galleryDB.gallery.settings;
 	const { effect, src, alt } = image;
 	const { type } = effect;
 	const { enable } = parallax;
 
 	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
 	const dataRate = enable ? 'data-rate="0.9"' : '';
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" src="${src}" />`;
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${createThumbnail(src, '500x')}" />`;
 
 	switch (type) {
 		case 'effect1': {
@@ -176,7 +178,7 @@ function effectLimitBase(image, galleryDB) {
 
 	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
 	const dataRate = enable ? 'data-rate="2"' : '';
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" src="${src}" />`;
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${createThumbnail(src, '500x')}" />`;
 
 	const textLimit = limit.text.replace('{number}', images.length - limit.items);
 	return effectLimit(imageDOM, textLimit);

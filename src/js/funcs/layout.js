@@ -39,7 +39,6 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
   const {
     box,
     background,
-    parallax,
     limit,
   } = settings;
 
@@ -60,11 +59,11 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
         ${
           (image.effect.video.enable && image.effect.video.url) ? (
             `<a href="${image.effect.video.url}" class="glightbox">
-              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
+              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, galleryDB)}
             </a>`
           ) : (
             `<a href="${image.src}" class="glightbox">
-              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, parallax)}
+              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, galleryDB)}
             </a>`
           )
         }
