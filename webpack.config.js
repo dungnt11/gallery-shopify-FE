@@ -15,7 +15,7 @@ function generateHtmlTemplate(templateDir) {
     const extension = parts[1];
     return new HtmlWebpackPlugin({
       filename: `${name}.html`,
-      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`)
+      template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
     });
   });
 }
@@ -26,7 +26,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/script.min.js'
+    filename: 'js/[hash].min.js'
   },
   module: {
     rules: [

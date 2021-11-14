@@ -6,8 +6,8 @@
   "license": "ISC",
   "scripts": {
     "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode=production",
-    "deploy": "git pull && npm run build && rm -rf /var/www/gallery && cp -R dist/ /var/www/gallery"
+    "build": "rm -rf dist/ && webpack --mode=production",
+    "deploy": "git pull && rm -rf dist/ && npm run build && rm -rf /var/www/gallery && cp -R dist/ /var/www/gallery"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
