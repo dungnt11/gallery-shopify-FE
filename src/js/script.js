@@ -6,11 +6,15 @@ import { loadingFn } from './funcs/loading';
 import { buildLayoutFn } from './funcs/layout';
 import { LightBox } from './funcs/lightbox';
 import { titleAndDescriptionFnc } from './funcs/titleAndDescription';
+import { getJsonSettings } from './helper/get-json';
 
-class Gallery {  
+class Gallery {
   async init() {
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
     if (!galleriesDOM.length) return;
+    // Fetch settings
+    await getJsonSettings();
+
     // Biến để kiểm tra DOM khởi tạo 1 lần
     let isInitParallax = false;
     let isInitAos = false;

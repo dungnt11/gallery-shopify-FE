@@ -5,7 +5,7 @@ import { boxFn } from './box';
 import { buildBackgroundFn } from './background';
 import { aosDOMFnc } from './aos';
 
-// Lấy effect trước đó đồng bộ với limit hiện tại
+// Lấy effect trước đó đồng bộ với limit hiện tại, xử lý cho limit gallery
 function asyncEffect(galleryDOM) {
   const limitDOM = galleryDOM.querySelector('.effect-limit');
   if (!limitDOM) return;
