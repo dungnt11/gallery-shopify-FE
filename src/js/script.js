@@ -1,4 +1,5 @@
 import { injectCSSToHead } from './helper/injectCSStoHead';
+import { getJsonSettings } from './helper/get-json';
 // Func
 import { AosBase } from './funcs/aos';
 import { parallaxAnimation } from './funcs/paralax';
@@ -6,7 +7,7 @@ import { loadingFn } from './funcs/loading';
 import { buildLayoutFn } from './funcs/layout';
 import { LightBox } from './funcs/lightbox';
 import { titleAndDescriptionFnc } from './funcs/titleAndDescription';
-import { getJsonSettings } from './helper/get-json';
+import { registerDisplay } from './helper/breakpoint';
 
 class Gallery {
   async init() {
@@ -26,6 +27,7 @@ class Gallery {
       titleAndDescriptionFnc(galleryDOMArg, galleryDB.gallery);
       if (galleryDB.gallery.settings.parallax.enable) isInitParallax = true;
       if (galleryDB.gallery.settings.scrollAnimation.enable) isInitAos = true;
+      registerDisplay(galleryDOMArg, galleryDB);
     }));
 
     if (isInitParallax) parallaxAnimation();

@@ -1,22 +1,9 @@
 import { genResponsiveCode } from '../helper/responsive';
 import { DISPLAY } from '../constant';
-import { effectBase, effectLimitBase } from '../effects';
+import { effectBase } from '../effects';
 import { boxFn } from './box';
 import { buildBackgroundFn } from './background';
 import { aosDOMFnc } from './aos';
-
-// Lấy effect trước đó đồng bộ với limit hiện tại, xử lý cho limit gallery
-function asyncEffect(galleryDOM) {
-  const limitDOM = galleryDOM.querySelector('.effect-limit');
-  if (!limitDOM) return;
-  const parentDOM = limitDOM.closest('.e-gallery__item');
-  if (!parentDOM) return;
-  const preDOM = parentDOM.previousSibling.previousSibling;
-  if (!preDOM) return;
-  const figureDOM = preDOM.querySelector('.e-image-item');
-  if (!figureDOM) return;
-  limitDOM.classList.add(...Array.from(figureDOM.classList || []));
-}
 
 function getLastBlock(images) {
   const maxY = {};
@@ -40,31 +27,32 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
     box,
     background,
     limit,
+    loadmore,
   } = settings;
 
   let imagesDOM = '';
   let cssAppend = '';
   const aosScrollAnimation = aosDOMFnc(galleryDB.gallery.settings.scrollAnimation);
 
-  images.forEach((image, ind) => {
-    const lastBlock = getLastBlock(limit.enable ? images.slice(0, limit.items) : images);
-    const isHideElement = (limit.enable && ind > limit.items) ? ' e-gallery_hidden' : '';
+  images.forEach((image) => {
+    const lastBlock = getLastBlock(images);
+    const classHideElement = (limit.enable || loadmore.enable) ? ' e-gallery_hidden' : '';
     const marginTop = image.effect.margin;
 
     imagesDOM += `
       <div
-        class="e-gallery__item${isHideElement}"
+        class="e-gallery__item${classHideElement}"
         id="${image.id}"
         ${aosScrollAnimation}
       >
         ${
           (image.effect.video.enable && image.effect.video.url) ? (
             `<a href="${image.effect.video.url}" class="glightbox">
-              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, galleryDB)}
+              ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           ) : (
             `<a href="${image.src}" class="glightbox">
-              ${limit.enable && limit.idImageShowButton === image.id ? effectLimitBase(image, galleryDB) : effectBase(image, galleryDB)}
+              ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           )
         }
@@ -94,7 +82,6 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
   cssAppend += buildBackgroundFn(galleryHandle, background);
 
   galleryDOMArg.innerHTML = imagesDOM;
-  asyncEffect(galleryDOMArg);
   return cssAppend;
 }
 

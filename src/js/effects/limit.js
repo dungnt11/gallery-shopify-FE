@@ -1,5 +1,5 @@
-function effectLimit(imageDOM, text) {
-  return `<figure class="e-image-item effect-limit">
+function effectLimit(imageDOM, text, customClass) {
+  return `<figure class="effect-limit${customClass}">
     ${imageDOM}
     <figcaption>
       <p>${text}</p>

@@ -31,14 +31,16 @@ import { effect28 } from './effect-28';
 import { effect29 } from './effect-29';
 import { effect30 } from './effect-30';
 
-function effectBase(image, galleryDB) {
+function effectBase(image, galleryDB, isHideElement) {
 	const { parallax } = galleryDB.gallery.settings;
 	const { effect, src, alt } = image;
 
 	const classImg = `e-gallery__image${parallax.enable ? ' parallax' : ''}`;
 	const dataRate = parallax.enable ? 'data-rate="0.9"' : '';
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${getThumbnailSrcImage(src)}" />`;
-
+	/**
+	 * isHideElement - ẩn SRC để tránh việc client load ảnh bị ẩn này
+	 */
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${isHideElement ? "" : getThumbnailSrcImage(src)}" />`;
 	const effectView = effect.isCustom ? image.effect : galleryDB.gallery.effect;
 	/**
 	 * Mọi thứ đang ăn theo effect tổng
@@ -172,19 +174,19 @@ function effectBase(image, galleryDB) {
 	}
 }
 
-function effectLimitBase(image, galleryDB) {
+function effectLimitBase(image, galleryDB, prevClass) {
 	const { src, alt } = image;
 
 	const { gallery, images } = galleryDB;
 	const { parallax, limit } = gallery.settings;
 	const { enable } = parallax;
 
-	const classImg = `e-gallery__image${enable ? ' parallax' : ''}`;
+	const classImg = enable ? ' parallax' : '';
 	const dataRate = enable ? 'data-rate="2"' : '';
 	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${getThumbnailSrcImage(src)}" />`;
 
 	const textLimit = limit.text.replace('{number}', images.length - limit.items);
-	return effectLimit(imageDOM, textLimit);
+	return effectLimit(imageDOM, textLimit, prevClass);
 }
 
 export { effectBase, effectLimitBase };
