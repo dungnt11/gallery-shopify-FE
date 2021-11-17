@@ -56,7 +56,7 @@ module.exports = {
   plugins: [
     new Dotenv(),
     new MiniCssExtractPlugin({
-      filename: "css/style.min.css"
+      filename: `css/style.min.css?v=${Date.now()}`
     }),
     new CopyWebpackPlugin({
       patterns: [
