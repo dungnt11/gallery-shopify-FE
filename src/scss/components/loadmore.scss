@@ -1,0 +1,175 @@
+@include keyframes(indeterminate) {
+    0% {
+      left: -35%;
+      right:100%;
+    }
+    60% {
+      left: 100%;
+      right: -90%;
+    }
+    100% {
+      left: 100%;
+      right: -90%;
+    }
+  }
+
+@include keyframes(indeterminate-short) {
+    0% {
+      left: -200%;
+      right: 100%;
+    }
+    60% {
+      left: 107%;
+      right: -8%;
+    }
+    100% {
+      left: 107%;
+      right: -8%;
+    }
+}
+
+/* Button primary variables */
+$btn-bg-color: #00a991;
+$btn-bg-color-hover: #009882;
+$btn-bg-color-active: #008f7b;
+$btn-bg-color-disabled: #c3e5df;
+$btn-txt-color: #ffffff;
+
+%button-primary {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: $btn-txt-color;
+  background-color: $btn-bg-color;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 16px;
+  margin-left: 24px;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  
+  &:first-child {
+    margin: 0;
+  }
+  
+  &:active {
+    transform: scale(0.9);
+    background: $btn-bg-color-active !important;
+  }
+  
+  &:hover {
+    background-color: $btn-bg-color-hover;
+  }
+}
+  
+/* Left loading button */
+
+.e-btn__loadmore[data="left-loading"] {
+  @extend %button-primary;
+  
+  span {
+    opacity: 1;
+    transition: all .15s ease-in-out;
+  }
+  
+  svg {
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    animation-duration: .15s;
+    
+    path, rect {
+      fill: $btn-txt-color;
+    }
+  }
+}
+
+.e-btn__loadmore[data="left-loading"].loading {
+  background: $btn-bg-color-disabled;
+  cursor: auto;
+  
+  &:hover {
+    background: $btn-bg-color-disabled;
+  }
+  
+  &:active {
+    transform: scale(1);
+    background: $btn-bg-color-disabled !important;
+  }
+  
+  svg {
+    width: 24px;
+    margin-right: 8px;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* Bottom loading button */
+
+.e-btn__loadmore[data="bottom-loading"] {
+  @extend %button-primary;
+  
+  // Progress Bar
+  .progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    display: none;
+    width: 100%;
+    
+    .indeterminate {
+      background-color: $btn-bg-color;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        
+        // Custom bezier
+        animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        // Custom bezier
+        animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1.15s;
+      }
+    }
+  }
+}
+
+.e-btn__loadmore[data="bottom-loading"].loading {
+  background: $btn-bg-color-disabled;
+  cursor: auto;
+  
+  &:hover {
+    background: $btn-bg-color-disabled;
+  }
+  
+  &:active {
+    transform: scale(1);
+    background: $btn-bg-color-disabled !important;
+  }
+}
