@@ -5,11 +5,11 @@ async function getJsonByShop(handleGallery) {
   const hostname = window.location.hostname;
   if (!hostname && process.env.NODE_ENV !== 'development') {return;}
   const shopName = getShop(hostname);
-  let urlJSON = `${process.env.URL_GALLERY_APP}/${shopName}/${handleGallery}.json`;
+  let urlJSON = `${process.env.URL_GALLERY_APP}/${shopName}/${handleGallery}.json?t=${Date.now()}`;
   if (!window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
     alert(`URL preview phải có dạng ${process.env.URL_GALLERY_APP}/?preview=true&gallery=doremon-shop/handle_gallery.json`);
   } else if (window.location.search) {
-    urlJSON = `${process.env.URL_GALLERY_APP}/${window.location.search.replace('?preview=true&gallery=', '')}?time=${Date.now()}`;
+    urlJSON = `${process.env.URL_GALLERY_APP}/${window.location.search.replace('?preview=true&gallery=', '')}?t=${Date.now()}`;
   }
   const resGallery = await fetch(urlJSON, {
     'headers': {
@@ -42,7 +42,7 @@ async function getJsonSettings() {
     const regex = /&gallery=(.*?)\//gm;
     shopName = regex.exec(window.location.search)[1];
   }
-  const urlJSON = `${process.env.URL_GALLERY_APP}/settings/${shopName}.json?time=${Date.now()}`;
+  const urlJSON = `${process.env.URL_GALLERY_APP}/settings/${shopName}.json?t=${Date.now()}`;
   try {
     const resSettingsGallery = await fetch(urlJSON, {
       'headers': {
