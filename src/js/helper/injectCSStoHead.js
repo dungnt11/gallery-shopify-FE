@@ -30,7 +30,7 @@ function injectCSSGlobalToHead() {
 
     link.rel = 'stylesheet';
     link.id = 'etify-css';
-    link.href = `https://css-gallery.ehandytech.com/style.min.css?v=${process.env.VERSION}`;
+    link.href = `https://css-gallery.ehandytech.com/css/style.min.css?v=${process.env.VERSION}`;
     head.appendChild(link);
   }
 }
