@@ -8,7 +8,7 @@ async function getJsonByShop(handleGallery) {
   let urlJSON = `${process.env.URL_GALLERY_APP}/${shopName}/${handleGallery}.json`;
   if (!window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
     alert(`URL preview phải có dạng ${process.env.URL_GALLERY_APP}/?preview=true&gallery=doremon-shop/handle_gallery.json`);
-  } else {
+  } else if (window.location.search) {
     urlJSON = `${process.env.URL_GALLERY_APP}/${window.location.search.replace('?preview=true&gallery=', '')}?time=${Date.now()}`;
   }
   const resGallery = await fetch(urlJSON, {
@@ -38,31 +38,35 @@ async function getJsonSettings() {
   let shopName = getShop(hostname);
   if (!window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
     alert(`URL preview phải có dạng ${process.env.URL_GALLERY_APP}/?preview=true&gallery=doremon-shop/handle_gallery.json`);
-  } else {
+  } else if (window.location.search) {
     const regex = /&gallery=(.*?)\//gm;
     shopName = regex.exec(window.location.search)[1];
   }
   const urlJSON = `${process.env.URL_GALLERY_APP}/settings/${shopName}.json?time=${Date.now()}`;
-  const resSettingsGallery = await fetch(urlJSON, {
-    'headers': {
-      'accept': '*/*',
-      'accept-language': 'vi,en-US;q=0.9,en;q=0.8',
-      'sec-ch-ua': '"Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"macOS"',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-origin'
-    },
-    'referrerPolicy': 'no-referrer',
-    'body': null,
-    'method': 'GET',
-    'mode': 'cors',
-    'credentials': 'include'
-  });
-  if (!resSettingsGallery.ok) return;
-  const settingsGalleryPaser = await resSettingsGallery.json();
-  settingsGallery.updateSettings(settingsGalleryPaser);
+  try {
+    const resSettingsGallery = await fetch(urlJSON, {
+      'headers': {
+        'accept': '*/*',
+        'accept-language': 'vi,en-US;q=0.9,en;q=0.8',
+        'sec-ch-ua': '"Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"macOS"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin'
+      },
+      'referrerPolicy': 'no-referrer',
+      'body': null,
+      'method': 'GET',
+      'mode': 'cors',
+      'credentials': 'include'
+    });
+    if (!resSettingsGallery.ok) return;
+    const settingsGalleryPaser = await resSettingsGallery.json();
+    settingsGallery.updateSettings(settingsGalleryPaser);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export { getJsonByShop, getJsonSettings };
