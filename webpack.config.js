@@ -26,7 +26,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[hash].min.js'
+    filename: `js/gallery.min.js?v=${Date.now()}`
   },
   module: {
     rules: [
