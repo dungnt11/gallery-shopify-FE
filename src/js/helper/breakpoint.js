@@ -18,7 +18,7 @@ function registerDisplay(galleryDOMArg, galleryDB) {
     let displayActive = bps[0];
     if (!displayActive) displayActive = 'xs';
     const blockSorted = sortLayout(galleryDB.images, displayActive);
-    limitFn(galleryDOMArg, galleryDB, blockSorted);
+    limitFn(galleryDOMArg, galleryDB, blockSorted, displayActive);
     loadmoreFn(galleryDOMArg, galleryDB, blockSorted, displayActive);
     filterFn(galleryDOMArg, galleryDB);
   });
