@@ -1,6 +1,8 @@
 // https://nicolas-cusan.github.io/breakpoint-helper/
 import breakpointHelper from 'breakpoint-helper';
+import { sortLayout } from '../helper/sortLayout';
 import { limitFn } from '../funcs/limit';
+import { loadmoreFn } from '../funcs/loadmore';
 
 const instance = breakpointHelper({
   xs: '416px',
@@ -12,8 +14,11 @@ const instance = breakpointHelper({
 
 function registerDisplay(galleryDOMArg, galleryDB) {
   instance.listenAll((bps) => {
-    const match = bps[0];
-    limitFn(galleryDOMArg, galleryDB, match);  
+    let displayActive = bps[0];
+    if (!displayActive) displayActive = 'xs';
+    const blockSorted = sortLayout(galleryDB.images, displayActive);
+    limitFn(galleryDOMArg, galleryDB, blockSorted);
+    loadmoreFn(galleryDOMArg, galleryDB, blockSorted, displayActive);
   });
 }
 

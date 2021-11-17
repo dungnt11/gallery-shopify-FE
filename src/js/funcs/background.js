@@ -20,7 +20,7 @@ function buildBackgroundFn(galleryHandle, backgroundSettings) {
 
   return `
     e-gallery-widget[data-id="${galleryHandle}"] {
-      background: ${bg};
+      ${bg ? `background: ${bg};` : ''}
       ${animationGradient ? `
       background-size: 400% 400% !important;
       animation: e-gallery-gradient 15s ease infinite;
