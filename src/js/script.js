@@ -23,7 +23,7 @@ class Gallery {
     await Promise.all(Array.from(galleriesDOM).map(async (galleryDOMArg) => {
       const [galleryHandle, galleryDB] = await loadingFn(galleryDOMArg);
       const cssLayout = buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle);
-      injectCSSToHead(cssLayout);
+      injectCSSToHead(cssLayout, galleryHandle);
       titleAndDescriptionFnc(galleryDOMArg, galleryDB.gallery);
       if (galleryDB.gallery.settings.parallax.enable) isInitParallax = true;
       if (galleryDB.gallery.settings.scrollAnimation.enable) isInitAos = true;

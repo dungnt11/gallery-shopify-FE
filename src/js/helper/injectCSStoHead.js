@@ -2,10 +2,10 @@
  * Hàm này sẽ gen ra style và append chúng và head của website
  */
 
-function injectCSSToHead(css) {
+function injectCSSToHead(css, id) {
   const head = document.head || document.getElementsByTagName('head')[0],
     style = document.createElement('style');
-  style.id = ''
+  style.id = id || '';
 
   head.appendChild(style);
 
@@ -17,4 +17,10 @@ function injectCSSToHead(css) {
   }
 }
 
-export { injectCSSToHead };
+function removeCSSInHead(id) {
+  const head = document.head || document.getElementsByTagName('head')[0];
+  const styleRemoved = head.querySelector(`#${id}`);
+  if (styleRemoved) styleRemoved.remove();
+}
+
+export { injectCSSToHead, removeCSSInHead };

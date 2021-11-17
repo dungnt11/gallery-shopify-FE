@@ -3,6 +3,7 @@ import breakpointHelper from 'breakpoint-helper';
 import { sortLayout } from '../helper/sortLayout';
 import { limitFn } from '../funcs/limit';
 import { loadmoreFn } from '../funcs/loadmore';
+import { filterFn } from '../funcs/filter';
 
 const instance = breakpointHelper({
   xs: '416px',
@@ -19,6 +20,7 @@ function registerDisplay(galleryDOMArg, galleryDB) {
     const blockSorted = sortLayout(galleryDB.images, displayActive);
     limitFn(galleryDOMArg, galleryDB, blockSorted);
     loadmoreFn(galleryDOMArg, galleryDB, blockSorted, displayActive);
+    filterFn(galleryDOMArg, galleryDB);
   });
 }
 

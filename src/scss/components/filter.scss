@@ -1,0 +1,14 @@
+.e-gallery_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  .e-gallery_filter__item {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+
+  .e-gallery_filter__active {
+    font-weight: 700;
+  }
+}

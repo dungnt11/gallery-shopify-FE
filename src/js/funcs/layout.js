@@ -20,8 +20,9 @@ function getLastBlock(images) {
 }
 
 // Build layout gallery
-function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle) {
-  const { images, gallery } = galleryDB;
+function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
+  const { gallery } = galleryDB;
+  const images = customImage || galleryDB.images;
   const { settings, rowGap, columnGap } = gallery;
   const {
     box,
