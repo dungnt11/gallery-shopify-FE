@@ -37,10 +37,18 @@ function filterFn(galleryDOMArg, galleryDB) {
     return prev;
   }, {});
 
+  function removeActiveLabel() {
+    Array.from(labelSelected.children).forEach((labelItem) => {
+      labelItem.classList.remove('e-gallery_filter__active');
+    });
+  }
+
   Array.from(labelSelected.children).forEach((labelGallery) => {
     labelGallery.onclick = function() {
       const dataLabel = labelGallery.getAttribute('data-label');
       if (preLabel === dataLabel) return;
+      removeActiveLabel();
+      labelGallery.classList.add('e-gallery_filter__active');
       if (dataLabel === 'ALL') {
         galleryDOMArg.innerHTML = '';
         const cssBuilder = buildLayoutFn(galleryDOMArg, galleryDB, ID_GALLERY);
