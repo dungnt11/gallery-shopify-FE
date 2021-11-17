@@ -1,5 +1,3 @@
-import { injectCSSToHead } from './helper/injectCSStoHead';
-import { getJsonSettings } from './helper/get-json';
 // Func
 import { AosBase } from './funcs/aos';
 import { parallaxAnimation } from './funcs/paralax';
@@ -7,10 +5,14 @@ import { loadingFn } from './funcs/loading';
 import { buildLayoutFn } from './funcs/layout';
 import { LightBox } from './funcs/lightbox';
 import { titleAndDescriptionFnc } from './funcs/titleAndDescription';
+// Helper
 import { registerDisplay } from './helper/breakpoint';
+import { injectCSSToHead, injectCSSGlobalToHead } from './helper/injectCSStoHead';
+import { getJsonSettings } from './helper/get-json';
 
 class Gallery {
   async init() {
+    injectCSSGlobalToHead();
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
     if (!galleriesDOM.length) return;
     // Fetch settings
