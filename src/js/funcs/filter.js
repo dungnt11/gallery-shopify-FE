@@ -1,4 +1,5 @@
 import { buildLayoutFn } from '../funcs/layout';
+import { LightBox } from '../funcs/lightbox';
 import { injectCSSToHead, removeCSSInHead } from '../helper/injectCSStoHead';
 
 function filterFn(galleryDOMArg, galleryDB) {
@@ -72,7 +73,7 @@ function filterFn(galleryDOMArg, galleryDB) {
           injectCSSToHead(cssBuilder, ID_GALLERY);
         }
       }
-
+      new LightBox();
       preLabel = dataLabel;
     }
   });
