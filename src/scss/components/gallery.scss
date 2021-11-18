@@ -20,6 +20,13 @@ e-gallery-widget {
 	figure {
 		@include box(100%);
 		margin: 0;
+		&:after {
+			content: '';
+			@include absolute(top 0 right 0 bottom 0 left 0);
+		}
+	}
+	figcaption {
+		z-index: 1;
 	}
 
 	.e-gallery_hidden {
@@ -41,7 +48,6 @@ figure {
 		display: block;
 		min-height: 100%;
 		max-width: 100%;
-		opacity: 0.8;
 	}
 
 	figcaption,
