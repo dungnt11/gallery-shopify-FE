@@ -35,6 +35,24 @@ $btn-bg-color-active: #008f7b;
 $btn-bg-color-disabled: #c3e5df;
 $btn-txt-color: #ffffff;
 
+/* Button secondary variables */
+$btn-secondary-bg-color: #e8edf1;
+$btn-secondary-bg-color-hover: #d9e1e8;
+$btn-secondary-bg-color-active: #cad5df;
+$btn-secondary-txt-color: #46515e;
+$btn-secondary-bg-color-disabled: #f8fafb;
+$btn-secondary-txt-color-disabled: #b8bdc5;
+
+/* Button bordered variables */
+$btn-border-bg-color: transparent;
+$btn-border-bg-color-hover: #f5f7f9;
+$btn-border-bg-color-active: #ffffff;
+$btn-border-color: #00a991;
+$btn-border-txt-color: #00a991;
+$btn-border-bg-color-disabled: transparent;
+$btn-border-color-disabled: #c3e5df;
+$btn-border-txt-color-disabled: #c3e5df;
+
 %button-primary {
   display: flex;
   align-items: center;
@@ -45,7 +63,6 @@ $btn-txt-color: #ffffff;
   font-size: 14px;
   font-weight: 700;
   padding: 0 16px;
-  margin: 10px auto;
   border-radius: 3px;
   border: 0;
   outline: 0;
@@ -67,10 +84,85 @@ $btn-txt-color: #ffffff;
     background-color: $btn-bg-color-hover;
   }
 }
+
+%button-secondary {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: $btn-secondary-txt-color;
+  background-color: $btn-secondary-bg-color;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 16px;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  
+  &:first-child {
+    margin: 0;
+  }
+  
+  &:active {
+    transform: scale(0.9);
+    background: $btn-secondary-bg-color-active !important;
+  }
+  
+  &:hover {
+    background-color: $btn-secondary-bg-color-hover;
+  }
+}
+  
+%button-bordered {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: $btn-border-bg-color;
+  color: $btn-border-txt-color;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 16px;
+  border-radius: 3px;
+  border: 1px solid $btn-border-color;
+  outline: 0;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  box-sizing: border-box;
+  overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  
+  &:first-child {
+    margin: 0;
+  }
+  
+  &:active {
+    transform: scale(0.9);
+    background: $btn-border-bg-color-active !important;
+  }
+  
+  &:hover {
+    background-color: $btn-border-bg-color-hover;
+  }
+}
+
+// Global
+.e-btn {
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+/*
+* Button primary
+*/
   
 /* Left loading button */
 
-.e-btn__loadmore[data="left-loading"] {
+.e-btn[data="left-loading"] {
   @extend %button-primary;
   
   span {
@@ -92,7 +184,7 @@ $btn-txt-color: #ffffff;
   }
 }
 
-.e-btn__loadmore[data="left-loading"].loading {
+.e-btn[data="left-loading"].loading-start {
   background: $btn-bg-color-disabled;
   cursor: auto;
   
@@ -113,11 +205,64 @@ $btn-txt-color: #ffffff;
   }
 }
 
-/* Bottom loading button */
+/* Center loading button */
 
-.e-btn__loadmore[data="bottom-loading"] {
+.e-btn[data="center-loading"] {
   @extend %button-primary;
   
+  span {
+    opacity: 1;
+  }
+  
+  svg {
+    width: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    
+    path, rect {
+      fill: $btn-txt-color;
+    }
+  }
+}
+
+.e-btn[data="center-loading"].loading-start {
+  background: $btn-bg-color-disabled;
+  cursor: auto;
+  
+  &:hover {
+    background: $btn-bg-color-disabled;
+  }
+  
+  &:active {
+    transform: scale(1);
+    background: $btn-bg-color-disabled !important;
+  }
+  
+  span {
+    opacity: 0;
+  }
+  
+  svg {
+    width: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    opacity: 1;
+  }
+}
+
+/* Bottom loading button */
+
+.e-btn[data="bottom-loading"] {
+  @extend %button-primary;
+
   // Progress Bar
   .progress {
     position: absolute;
@@ -158,9 +303,13 @@ $btn-txt-color: #ffffff;
       }
     }
   }
+
+  .progress-active {
+    display: block !important;
+  }
 }
 
-.e-btn__loadmore[data="bottom-loading"].loading {
+.e-btn[data="bottom-loading"].loading-start {
   background: $btn-bg-color-disabled;
   cursor: auto;
   
@@ -171,5 +320,358 @@ $btn-txt-color: #ffffff;
   &:active {
     transform: scale(1);
     background: $btn-bg-color-disabled !important;
+  }
+}
+
+/*
+* Button secondary
+*/
+  
+/* Left loading button */
+
+.e-btn[data="left-loading"].secondary {
+  @extend %button-secondary;
+  
+  span {
+    opacity: 1;
+    transition: all .15s ease-in-out;
+  }
+  
+  svg {
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    animation-duration: .15s;
+    
+    path, rect {
+      fill: $btn-secondary-txt-color-disabled;
+    }
+  }
+}
+
+.e-btn[data="left-loading"].secondary.loading-start {
+  background: $btn-secondary-bg-color-disabled;
+  color: $btn-secondary-txt-color-disabled;
+  cursor: auto;
+  
+  &:hover {
+    background: $btn-secondary-bg-color-disabled;
+  }
+  
+  &:active {
+    transform: scale(1);
+    background: $btn-secondary-bg-color-disabled !important;
+  }
+  
+  svg {
+    width: 24px;
+    margin-right: 8px;
+    visibility: visible;
+    opacity: 1;
+    
+    path, rect {
+      fill: $btn-secondary-txt-color-disabled;
+    }
+  }
+}
+
+/* Center loading button */
+
+.e-btn[data="center-loading"].secondary {
+  @extend %button-secondary;
+  
+  span {
+    opacity: 1;
+  }
+  
+  svg {
+    width: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    
+    path, rect {
+      fill: $btn-secondary-txt-color-disabled;
+    }
+  }
+}
+
+.e-btn[data="center-loading"].secondary.loading-start {
+  background: $btn-secondary-bg-color-disabled;
+  cursor: auto;
+  
+  &:hover {
+    background: $btn-secondary-bg-color-disabled;
+  }
+  
+  &:active {
+    transform: scale(1);
+    background: $btn-secondary-bg-color-disabled !important;
+  }
+  
+  span {
+    opacity: 0;
+  }
+  
+  svg {
+    width: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    opacity: 1;
+    
+    path, rect {
+      fill: $btn-secondary-txt-color-disabled;
+    }
+  }
+}
+  
+/* Bottom loading button */
+
+.e-btn[data="bottom-loading"].secondary {
+  @extend %button-secondary;
+  
+  // Progress Bar
+  .progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    display: none;
+    width: 100%;
+    
+    .indeterminate {
+      background-color: $btn-secondary-txt-color;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        
+        // Custom bezier
+        animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        // Custom bezier
+        animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1.15s;
+      }
+    }
+  }
+}
+
+.e-btn[data="bottom-loading"].secondary.loading-start {
+  background: $btn-secondary-bg-color-disabled;
+  cursor: auto;
+  
+  span {
+    color: $btn-secondary-txt-color-disabled;
+  }
+  
+  &:hover {
+    background: $btn-secondary-bg-color-disabled;
+  }
+  
+  &:active {
+    transform: scale(1);
+    background: $btn-secondary-bg-color-disabled !important;
+  }
+}
+
+/*
+* Button bordered
+*/
+  
+/* Left loading button */
+
+.e-btn[data="left-loading"].bordered {
+  @extend %button-bordered;
+  
+  span {
+    opacity: 1;
+    transition: all .15s ease-in-out;
+  }
+  
+  svg {
+    width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    animation-duration: .15s;
+    
+    path, rect {
+      fill: $btn-border-txt-color;
+    }
+  }
+}
+
+.e-btn[data="left-loading"].bordered.loading-start {
+  cursor: auto;
+  border-color: $btn-border-color-disabled;
+  background: $btn-border-bg-color-disabled;
+  
+  &:hover {
+    background: $btn-border-bg-color;
+  }
+  
+  &:active {
+    transform: scale(1);
+  }
+  
+  .text {
+    color: $btn-border-txt-color-disabled;
+  }
+  
+  svg {
+    width: 24px;
+    margin-right: 8px;
+    visibility: visible;
+    opacity: 1;
+    
+    path, rect {
+      fill: $btn-border-txt-color-disabled;
+    }
+  }
+}
+
+/* Center loading button */
+
+.e-btn[data="center-loading"].bordered {
+  @extend %button-bordered;
+  
+  span {
+    opacity: 1;
+  }
+  
+  svg {
+    width: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    
+    path, rect {
+      fill: $btn-border-txt-color;
+    }
+  }
+}
+
+.e-btn[data="center-loading"].bordered.loading-start {
+  cursor: auto;
+  color: $btn-border-txt-color-disabled;
+  border-color: $btn-border-color-disabled;
+  background: $btn-border-bg-color-disabled;
+  
+  &:hover {
+    background: $btn-border-bg-color;
+  }
+  
+  &:active {
+    transform: scale(1);
+  }
+  
+  span {
+    opacity: 0;
+  }
+  
+  svg {
+    width: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    opacity: 1;
+    
+    path, rect {
+      fill: $btn-border-txt-color-disabled;
+    }
+  }
+}
+
+/* Bottom loading button */
+
+.e-btn[data="bottom-loading"].bordered {
+  @extend %button-bordered;
+  
+  // Progress Bar
+  .progress {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 3px;
+    display: none;
+    width: 100%;
+    
+    .indeterminate {
+      background-color: $btn-border-color;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        
+        // Custom bezier
+        animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        will-change: left, right;
+        // Custom bezier
+        animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+        animation-delay: 1.15s;
+      }
+    }
+  }
+}
+
+.e-btn[data="bottom-loading"].bordered.loading-start {
+  cursor: auto;
+  color: $btn-border-txt-color-disabled;
+  border-color: $btn-border-color-disabled;
+  background: $btn-border-bg-color-disabled;
+  
+  &:hover {
+    background: $btn-border-bg-color;
+  }
+  
+  &:active {
+    transform: scale(1);
   }
 }
