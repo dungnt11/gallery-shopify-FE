@@ -26,14 +26,12 @@ function sortLayout(images, displayActive) {
     if (lastImageStore.x + lastImageStore.w === 12) {
       maxY.shift();
     }
-    const imagePushed = imagesCloned.find((image) => {
+    const imagePushed = imagesCloned.length > 1 ? imagesCloned.find((image) => {
       if (lastImageStore.x + lastImageStore.w === 12) {
         return image.layout[displayActive].x === 0 && image.layout[displayActive].y === maxY[0];
-      } else {
-        return image.layout[displayActive].x === lastImageStore.x + lastImageStore.w;
       }
-    });
-
+      return image.layout[displayActive].x === lastImageStore.x + lastImageStore.w;
+    }) : imagesCloned[0];
     imageSortStore.push(imagePushed);
     imagesCloned = imagesCloned.filter((img) => img.id !== imagePushed.id);
   }
