@@ -4,8 +4,8 @@ import { injectCSSToHead, removeCSSInHead } from '../helper/injectCSStoHead';
 
 function filterFn(galleryDOMArg, galleryDB) {
   let preLabel = 'ALL';
-  const { filter } = galleryDB.gallery.settings;
-  if (!filter.enable) return;
+  const { filter, typeFilter, isEnableFilter } = galleryDB.gallery.settings;
+  if (!(typeFilter === 'filter' && isEnableFilter)) return;
 
   const ID_GALLERY = galleryDOMArg.getAttribute('data-id');
   if (document.querySelector(`.e-gallery_wrapper[data-id="${ID_GALLERY}"]`)) return;

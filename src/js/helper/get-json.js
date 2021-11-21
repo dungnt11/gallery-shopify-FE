@@ -7,6 +7,7 @@ async function getJsonByShop(handleGallery) {
   const shopName = getShop(hostname);
   let urlJSON = `${process.env.URL_GALLERY_APP}/${shopName}/${handleGallery}.json?t=${Date.now()}`;
   if (window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
+    document.body.classList.add('font-active');
     urlJSON = `${process.env.URL_GALLERY_APP}/${window.location.search.replace('?preview=true&gallery=', '')}?t=${Date.now()}`;
   }
   const resGallery = await fetch(urlJSON, {

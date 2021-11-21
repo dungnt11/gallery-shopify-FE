@@ -2,8 +2,8 @@ import { effectBase } from '../effects';
 import { btn1, btn2 } from '../buttons';
 
 function loadmoreFn(galleryDOM, galleryDB, blockSorted, displayActive) {
-  const { loadmore } = galleryDB.gallery.settings;
-  if (!loadmore.enable) return;
+  const { loadmore, typeFilter, isEnableFilter } = galleryDB.gallery.settings;
+  if (!(typeFilter === 'loadmore' && isEnableFilter)) return;
   let imageLoaded = loadmore.load;
 
   // Handle for scroll loadmore
