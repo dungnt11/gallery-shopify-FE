@@ -1,5 +1,3 @@
-import { getGradientPreview } from '../helper/get-gradient';
-
 function buildBackgroundFn(galleryHandle, backgroundSettings) {
   const { type, solid, gradient, image, animationGradient } = backgroundSettings;
 
@@ -9,7 +7,7 @@ function buildBackgroundFn(galleryHandle, backgroundSettings) {
       bg = solid.color;
       break;
     case 'gradient':
-      bg = getGradientPreview(gradient.gradient, gradient.angle).background;
+      bg = gradient.css;
       break;
     case 'image':
       bg = `url(${image}) no-repeat center center;background-size:cover`;
