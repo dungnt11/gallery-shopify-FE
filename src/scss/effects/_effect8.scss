@@ -16,17 +16,12 @@
 			opacity: 1;
 			@include prefix(transform, scale(1), webkit);
 		}
-		img {
-			opacity: 0.4;
-		}
 	}
 	img {
-		opacity: 0.9;
 		@include prefix(transition, opacity 0.35s, webkit);
 	}
 	figcaption {
 		padding: 3em;
-		background-color: rgba(58, 52, 42, 0.7);
 		@include flexbox();
 		@include align-items(center);
 		@include justify-content(center);

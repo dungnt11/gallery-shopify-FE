@@ -78,7 +78,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       `);
     });
   });
-  
+  console.log(gallery)
   cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure:after {
     background: ${gallery.effect.bgColor.color}
   }`

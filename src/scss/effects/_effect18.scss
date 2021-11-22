@@ -31,7 +31,6 @@
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, translate3d(-50%, -50%, 0), webkit);
 		@include prefix(transform-origin, 50%, webkit);
-		width: 100px;
 		text-transform: none;
 		font-size: 121%;
 		line-height: 2;
