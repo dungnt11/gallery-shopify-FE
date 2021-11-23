@@ -78,7 +78,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       `);
     });
   });
-  cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure:after {
+  cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure, e-gallery-widget[data-id="${galleryHandle}"] figure:after, e-gallery-widget[data-id="${galleryHandle}"] .bg-inherit {
     background: ${gallery.effect.bgColor.color};
   }`
   cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figcaption, e-gallery-widget[data-id="${galleryHandle}"] figcaption p {

@@ -5,6 +5,9 @@
 		padding: 1em;
 		height: 3.75em;
 		background: inherit;
+		@include flexbox()
+		@include justify-content(space-between);
+		@include align-items(center);
 		@include prefix(transition, transform 0.35s, webkit);
 		@include prefix(transform, translate3d(0, 100%, 0), webkit);
 	}
@@ -13,24 +16,6 @@
 		@include prefix(transition, transform 0.35s, webkit);
 		@include prefix(transform, translate3d(0, 200%, 0), webkit);
 		display: inline-block;
-	}
-	p.icon-links {
-		a {
-			float: right;
-			font-size: 1.4em;
-			@include prefix(transition, transform 0.35s, webkit);
-			@include prefix(transform, translate3d(0, 200%, 0), webkit);
-			span {
-				&::before {
-					display: inline-block;
-					padding: 8px 10px;
-					font-family: "feathericons";
-					speak: none;
-					-webkit-font-smoothing: antialiased;
-					-moz-osx-font-smoothing: grayscale;
-				}
-			}
-		}
 	}
 	&:hover, &.effect-hover {
 		p.icon-links {
@@ -53,7 +38,7 @@
 				}
 			}
 		}
-		p.description {
+		p {
 			opacity: 1;
 			bottom: 0;
 		}
@@ -64,33 +49,5 @@
 			@include prefix(transform, translate3d(0, 0, 0), webkit);
 			@include prefix(transition-delay, 0.05s, webkit);
 		}
-	}
-	p.description {
-		@include absolute(bottom -10px);
-		padding: 2em;
-		color: #fff;
-		text-transform: none;
-		font-size: 90%;
-		opacity: 0;
-		height: 100%;
-		@include flexbox();
-		@include align-items(center);
-		@include prefix(transition, all 0.35s, webkit);
-		@include prefix(backface-visibility, hidden, webkit);
-	}
-}
-.icon-eye {
-	&::before {
-		content: "\e000";
-	}
-}
-.icon-paper-clip {
-	&::before {
-		content: "\e001";
-	}
-}
-.icon-heart {
-	&::before {
-		content: "\e024";
 	}
 }

@@ -8,9 +8,7 @@ function effect16(effect, imageDOM) {
     ${imageDOM}
     <figcaption>
       <h2>${effect.title}</h2>
-      <div>
-        <p>${effect.description}</p>
-      </div>
+      <p class="bg-inherit">${effect.description}</p>
     </figcaption>			
   </figure>`;
 }

@@ -24,10 +24,10 @@
 		padding: 1em 1.2em;
 	}
 	p {
-		padding: 0 10px 0 0;
+		padding: 0 0 0 10px;
 		width: 50%;
-		border-right: 1px solid #fff;
-		text-align: right;
+		border-left: 1px solid #fff;
+		text-align: left;
 		opacity: 0;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 		@include prefix(transform, translate3d(-40px, 0, 0), webkit);

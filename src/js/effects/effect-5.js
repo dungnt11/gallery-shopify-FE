@@ -6,9 +6,9 @@
 function effect5(effect, imageDOM) {
 	return `<figure class="effect-zoe e-image-item">
     ${imageDOM}
-    <p class="description">${effect.description}</p>
     <figcaption>
       <h2>${effect.title}</h2>
+      <p>${effect.description}</p>
     </figcaption>
   </figure>`;
 }
