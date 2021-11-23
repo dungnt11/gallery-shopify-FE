@@ -1,6 +1,4 @@
 .e-image-item.effect-oscar {
-	background: -webkit-linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
-	background: linear-gradient(45deg, #22682a 0%, #9b4a1b 40%, #3a342a 100%);
 	&:hover, &.effect-hover {
 		h2 {
 			@include prefix(transform, translate3d(0, 0, 0), webkit);

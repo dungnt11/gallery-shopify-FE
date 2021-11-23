@@ -1,14 +1,12 @@
 .e-image-item.effect-steve {
 	z-index: auto;
-	background: #000;
 	&:before {
 		@include absolute(top 0 left 0);
 		@include box(100%);
 		z-index: -1;
-		background: #000;
+		background: inherit;
 		content: "";
 		@include prefix(transition, opacity 0.35s, webkit);
-		box-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
 		opacity: 0;
 	}
 	h2 {
@@ -16,13 +14,10 @@
 			@include absolute(top 0 left 0);
 			z-index: -1;
 			@include box(100%);
-			background: #000;
 			content: "";
 			@include prefix(transition, opacity 0.35s, webkit);
-			box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 		}
-		background: #fff;
-		color: #2d434e;
+		background: #8a8a8a8f;
 		position: relative;
 		padding: 0.25em;
 	}
@@ -35,7 +30,6 @@
 		@include prefix(transform, perspective(1000px) translate3d(0, 0, 0), webkit);
 	}
 	p {
-		color: #2d434e;
 		margin-top: 1em;
 		padding: 0.5em;
 		font-weight: 800;

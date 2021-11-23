@@ -1,6 +1,4 @@
 .e-image-item.effect-duke {
-	background: -webkit-linear-gradient(-45deg, #34495e 0%, #cc6055 100%);
-	background: linear-gradient(-45deg, #34495e 0%, #cc6055 100%);
 	img {
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 	}

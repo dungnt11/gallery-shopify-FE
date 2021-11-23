@@ -27,7 +27,6 @@
 		@include prefix(transition, transform 0.35s, webkit o);
 	}
 	p {
-		color: rgba(255, 255, 255, 0.8);
 		opacity: 0;
 		@include prefix(transition, (opacity 0.2s, transform 0.35s), webkit o);
 	}

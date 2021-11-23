@@ -31,7 +31,6 @@
 		&::before {
 			@include absolute(top 50% left 50%);
 			@include box(80%, 1px);
-			background: #fff;
 			content: "";
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 			@include prefix(transform, translate3d(-50%, -50%, 0), webkit);
@@ -39,7 +38,6 @@
 		&::after {
 			@include absolute(top 50% left 50%);
 			@include box(80%, 1px);
-			background: #fff;
 			content: "";
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 			@include prefix(transform, translate3d(-50%, -50%, 0), webkit);

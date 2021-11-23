@@ -1,5 +1,4 @@
 .e-image-item.effect-kira {
-	background: #fff;
 	text-align: left;
 	img {
 		@include prefix(transition, opacity 0.35s, webkit);
@@ -10,7 +9,7 @@
 			@include absolute(top 0 right 2em left 2em);
 			z-index: -1;
 			height: 3.5em;
-			background: #fff;
+			background: #8a8a8a8f;
 			content: "";
 			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 			@include prefix(transform, translate3d(0, 4em, 0) scale3d(1, 0.023, 1), webkit);
@@ -27,7 +26,6 @@
 		@include prefix(transform, translate3d(0, -10px, 0), webkit);
 		a {
 			margin: 0 0.5em;
-			color: #101010;
 			&:hover {
 				opacity: 0.6;
 			}

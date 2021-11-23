@@ -1,5 +1,4 @@
 .e-image-item.effect-julia {
-	background: #2f3238;
 	&:hover, &.effect-hover {
 		p {
 			&:first-child {
@@ -22,7 +21,7 @@
 	img {
 		max-width: none;
 		object-fit: cover;
-		@include box(100%, 400px);
+		@include box(100%, 100%);
 		@include prefix(transition, (opacity 1s, transform 1s), webkit);
 		@include prefix(backface-visibility, hidden, webkit);
 	}
@@ -37,8 +36,7 @@
 		display: inline-block;
 		margin: 0 0 0.25em;
 		padding: 0.4em 1em;
-		background: rgba(255, 255, 255, 0.9);
-		color: #2f3238;
+		background: #8a8a8a8f;
 		text-transform: none;
 		font-weight: 500;
 		font-size: 75%;
