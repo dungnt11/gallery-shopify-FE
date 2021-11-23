@@ -78,12 +78,11 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       `);
     });
   });
-
   cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure:after {
-    background: ${gallery.effect.bgColor.color}
+    background: ${gallery.effect.bgColor.color};
   }`
   cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figcaption, e-gallery-widget[data-id="${galleryHandle}"] figcaption p {
-    color: ${gallery.effect.textColor.color} !important
+    color: ${gallery.effect.textColor.color} !important;
   }`
 
   cssAppend += boxFn(galleryHandle, box);
