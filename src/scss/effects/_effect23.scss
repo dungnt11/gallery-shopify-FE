@@ -1,5 +1,4 @@
 .e-image-item.effect-apollo {
-	background: #3498db;
 	img {
 		opacity: 0.95;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
@@ -10,7 +9,6 @@
 		&::before {
 			@include absolute(top 0 left 0);
 			@include box(100%);
-			background: rgba(255, 255, 255, 0.5);
 			content: "";
 			@include prefix(transition, transform 0.6s, webkit);
 			@include prefix(transform, scale3d(1.9, 1.4, 1) rotate3d(0, 0, 1, 45deg) translate3d(0, -120%, 0), webkit);

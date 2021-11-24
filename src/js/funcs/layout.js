@@ -78,11 +78,12 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       `);
     });
   });
-  cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure, e-gallery-widget[data-id="${galleryHandle}"] figure:after, e-gallery-widget[data-id="${galleryHandle}"] .bg-inherit {
-    background: ${gallery.effect.bgColor.color};
-  }`
-  cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figcaption, e-gallery-widget[data-id="${galleryHandle}"] figcaption p {
+  cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure {
     color: ${gallery.effect.textColor.color} !important;
+  }`;
+
+  cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure {
+    background: ${gallery.effect.bgColor.color};
   }`
 
   cssAppend += boxFn(galleryHandle, box);

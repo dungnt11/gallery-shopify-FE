@@ -1,5 +1,4 @@
 .e-image-item.effect-winston {
-	background: #162633;
 	text-align: left;
 	img {
 		@include prefix(transition, opacity 0.45s, webkit);
@@ -9,7 +8,6 @@
 		&::before {
 			@include absolute(top 0 left 0);
 			@include box(100%);
-			//background: url(../img/triangle.svg) no-repeat center center;
 			background-size: 100% 100%;
 			content: "";
 			@include prefix(transition, (opacity 0.45s, transform 0.45s), webkit);

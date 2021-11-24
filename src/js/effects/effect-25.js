@@ -7,7 +7,7 @@ function effect25(effect, imageDOM) {
 	return `<figure class="effect-steve e-image-item">
     ${imageDOM}
     <figcaption>
-      <h2 class="bg-inherit">${effect.title}</h2>
+      <h2>${effect.title}</h2>
       <p>${effect.description}</p>
     </figcaption>			
   </figure>`;

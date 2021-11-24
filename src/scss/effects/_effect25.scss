@@ -17,7 +17,7 @@
 			content: "";
 			@include prefix(transition, opacity 0.35s, webkit);
 		}
-		background: #8a8a8a8f;
+		background: inherit;
 		position: relative;
 		padding: 0.25em;
 	}
