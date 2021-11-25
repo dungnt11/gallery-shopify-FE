@@ -9,6 +9,7 @@ async function getJsonByShop(handleGallery) {
   if (window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
     document.body.classList.add('font-active');
     urlJSON = `${process.env.URL_GALLERY_APP}/${window.location.search.replace('?preview=true&gallery=', '')}?t=${Date.now()}`;
+    settingsGallery.setConfig({ isPreviewMode: true });
   }
   const resGallery = await fetch(urlJSON, {
     'headers': {

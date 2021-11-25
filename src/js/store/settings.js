@@ -5,6 +5,14 @@ class SettingsGallery {
       maxWidthImage: 500,
       myshopifyDomain: ''
     };
+
+    this.config = {
+      isPreviewMode: false,
+    }
+  }
+
+  setConfig(config) {
+    this.config = Object.assign(this.config, config);
   }
 
   updateSettings(settings) {

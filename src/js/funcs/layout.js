@@ -5,6 +5,8 @@ import { boxFn } from './box';
 import { buildBackgroundFn } from './background';
 import { aosDOMFnc } from './aos';
 
+import { settingsGallery } from '../store/settings';
+
 function getLastBlock(images) {
   const maxY = {};
   images.forEach(({ layout }) => {
@@ -17,6 +19,14 @@ function getLastBlock(images) {
   });
 
   return maxY;
+}
+
+function buildLinkRedirect(link) {
+  if (settingsGallery.config.isPreviewMode) {
+    return `https://${settingsGallery.settings.myshopifyDomain}/${link}`;
+  }
+
+  return link;
 }
 
 // Build layout gallery
@@ -52,7 +62,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
               ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           ) : (
-            `<a href="${image.effect.link || image.src}" ${!image.effect.link ? 'class="glightbox"' : ''}>
+            `<a href="${buildLinkRedirect(image.effect.link) || image.src}" ${!image.effect.link ? 'class="glightbox"' : ''}>
               ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           )
