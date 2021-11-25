@@ -62,7 +62,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
               ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           ) : (
-            `<a href="${buildLinkRedirect(image.effect.link) || image.src}" ${!image.effect.link ? 'class="glightbox"' : ''}>
+            `<a href="${image.effect.link ? buildLinkRedirect(image.effect.link) : image.src}" ${!image.effect.link ? 'class="glightbox"' : ''}>
               ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           )
