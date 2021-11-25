@@ -22,7 +22,7 @@ function getLastBlock(images) {
 }
 
 function buildLinkRedirect(link) {
-  if (settingsGallery.config.isPreviewMode) {
+  if (settingsGallery.config.isPreviewMode && (link.startsWith('collections/') || link.startsWith('products/'))) {
     return `https://${settingsGallery.settings.myshopifyDomain}/${link}`;
   }
 
