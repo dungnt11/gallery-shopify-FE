@@ -52,14 +52,14 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
               ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           ) : (
-            `<a href="${image.src}" class="glightbox">
+            `<a href="${image.effect.link || image.src}" ${!image.effect.link ? 'class="glightbox"' : ''}>
               ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
             </a>`
           )
         }
       </div>
     `;
-
+    
     DISPLAY.forEach((display) => {
       const layoutObj = image.layout[display];
       cssAppend += genResponsiveCode(display, `
