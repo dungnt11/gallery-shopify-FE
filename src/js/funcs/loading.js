@@ -9,6 +9,8 @@ async function loadingFn(galleryDOMArg) {
     return [galleryHandle, galleryDB];
   } catch (error) {
     console.error(error);
+  } finally {
+    galleryDOMArg.innerHTML = '';
   }
 }
 

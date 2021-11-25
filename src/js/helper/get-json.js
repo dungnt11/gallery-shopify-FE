@@ -28,6 +28,7 @@ async function getJsonByShop(handleGallery) {
     'mode': 'cors',
     'credentials': 'include'
   });
+  if (!resGallery.ok) throw new Error('Fetch gallery error!');
   const resGalleryParser = await resGallery.json();
   return resGalleryParser;
 }
