@@ -83,9 +83,30 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
         e-gallery-widget[data-id="${galleryHandle}"] {
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
           grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px);
-          width: calc(${settings.fullWidth.enable ? `${settings.fullWidth.precentWidth}%` : '100%'} - 20px);
         }
       `);
+
+      if (settings.fullWidth.enable) {
+        if (settings.fullWidth.enableFixedWidth) {
+          cssAppend += genResponsiveCode(display, `
+            e-gallery-widget[data-id="${galleryHandle}"] {
+              width: ${settings.fullWidth.fixedWidth}px;
+            }
+          `);
+        } else {
+          cssAppend += genResponsiveCode(display, `
+            e-gallery-widget[data-id="${galleryHandle}"] {
+              width: calc(${settings.fullWidth.precentWidth}% - 20px);
+            }
+          `);
+        }
+      } else {
+        cssAppend += genResponsiveCode(display, `
+          e-gallery-widget[data-id="${galleryHandle}"] {
+            width: calc(100% - 20px);
+          }
+        `);
+      }
     });
   });
   cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure {
