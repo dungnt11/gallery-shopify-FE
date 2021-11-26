@@ -88,11 +88,13 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
 
       if (settings.fullWidth.enable) {
         if (settings.fullWidth.enableFixedWidth) {
-          cssAppend += genResponsiveCode(display, `
-            e-gallery-widget[data-id="${galleryHandle}"] {
-              width: ${settings.fullWidth.fixedWidth}px;
+          cssAppend += `
+            @media only screen and (min-width: 992px) {
+              e-gallery-widget[data-id="${galleryHandle}"] {
+                width: ${settings.fullWidth.fixedWidth}px;
+              }
             }
-          `);
+          `;
         } else {
           cssAppend += genResponsiveCode(display, `
             e-gallery-widget[data-id="${galleryHandle}"] {
