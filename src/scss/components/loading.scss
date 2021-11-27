@@ -1,131 +1,54 @@
-.page-loader {
+.e-gallery-lds-heart {
+  width: 80px;
+  height: 80px;
   transform: rotate(45deg) translateX(-50%);
+  transform-origin: 40px 40px;
   position: absolute;
-  top: 0;
   left: 50%;
-  margin-top: 60px;
 }
-
-.gradient {
-  animation-iteration-count: infinite;
-  animation-duration: 1s;
-  fill: url('#gradient-fill');
+.e-gallery-lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #8a8a8a;
+  animation: e-gallery-lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-
-.square {
-  animation-iteration-count: infinite;
-  animation-duration: 2s;
-  transition-timing-function: ease-in-out;
+.e-gallery-lds-heart div:after,
+.e-gallery-lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #8a8a8a;
 }
-
-.s1 {
-  animation-name: slide-1;
+.e-gallery-lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
 }
-
-.s2 {
-  animation-name: slide-2;
+.e-gallery-lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
 }
-
-.s3 {
-  animation-name: slide-3;
-}
-
-.s4 {
-  animation-name: slide-4;
-}
-
-.s5 {
-  animation-name: slide-5;
-}
-
-.s6 {
-  animation-name: slide-6;
-}
-
-.s7 {
-  animation-name: slide-7;
-}
-
-@keyframes slide-1 {
-  37.5% {
-    transform: translateX(0px);
+@keyframes e-gallery-lds-heart {
+  0% {
+    transform: scale(0.95);
   }
-  50% {
-    transform: translateX(100px);
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
   }
   100% {
-    transform: translateX(100px);
-  }
-}
-
-@keyframes slide-2 {
-  25% {
-    transform: translateX(0px);
-  }
-  37.5% {
-    transform: translateX(100px);
-  }
-  100% {
-    transform: translateX(100px);
-  }
-}
-
-@keyframes slide-3 {
-  12.5% {
-    transform: translateY(0px);
-  }
-  25% {
-    transform: translateY(100px);
-  }
-  100% {
-    transform: translateY(100px);
-  }
-}
-
-@keyframes slide-4 {
-  50% {
-    transform: translateY(0px);
-  }
-  62.5% {
-    transform: translateY(-100px);
-  }
-  100% {
-    transform: translateY(-100px);
-  }
-}
-
-@keyframes slide-5 {
-  12.5% {
-    transform: translate(-100px, 0px);
-  }
-  87.5% {
-    transform: translate(-100px, 0px);
-  }
-  100% {
-    transform: translate(-100px, 100px);
-  }
-}
-
-@keyframes slide-6 {
-  62.5% {
-    transform: translateY(0px);
-  }
-  75% {
-    transform: translateY(-100px);
-  }
-  100% {
-    transform: translateY(-100px);
-  }
-}
-
-@keyframes slide-7 {
-  75%  {
-    transform: translateX(0px);
-  }
-  87.5% {
-    transform: translateX(-100px);
-  }
-  100% {
-    transform: translateX(-100px);
+    transform: scale(0.9);
   }
 }

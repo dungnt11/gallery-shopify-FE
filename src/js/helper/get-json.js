@@ -12,21 +12,7 @@ async function getJsonByShop(handleGallery) {
     settingsGallery.setConfig({ isPreviewMode: true });
   }
   const resGallery = await fetch(urlJSON, {
-    'headers': {
-      'accept': '*/*',
-      'accept-language': 'vi,en-US;q=0.9,en;q=0.8',
-      'sec-ch-ua': '"Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"macOS"',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-origin'
-    },
-    'referrerPolicy': 'no-referrer',
-    'body': null,
     'method': 'GET',
-    'mode': 'cors',
-    'credentials': 'include'
   });
   if (!resGallery.ok) throw new Error('Fetch gallery error!');
   const resGalleryParser = await resGallery.json();
@@ -44,21 +30,7 @@ async function getJsonSettings() {
   const urlJSON = `${process.env.URL_GALLERY_APP}/settings/${shopName}.json?t=${Date.now()}`;
   try {
     const resSettingsGallery = await fetch(urlJSON, {
-      'headers': {
-        'accept': '*/*',
-        'accept-language': 'vi,en-US;q=0.9,en;q=0.8',
-        'sec-ch-ua': '"Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"macOS"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin'
-      },
-      'referrerPolicy': 'no-referrer',
-      'body': null,
       'method': 'GET',
-      'mode': 'cors',
-      'credentials': 'include'
     });
     if (!resSettingsGallery.ok) return;
     const settingsGalleryPaser = await resSettingsGallery.json();
