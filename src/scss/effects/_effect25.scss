@@ -25,7 +25,6 @@
 		z-index: 1;
 	}
 	img {
-		opacity: 1;
 		@include prefix(transition, transform 0.35s, webkit);
 		@include prefix(transform, perspective(1000px) translate3d(0, 0, 0), webkit);
 	}

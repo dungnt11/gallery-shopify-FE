@@ -1,4 +1,5 @@
 .e-image-item.effect-terry {
+	background: #34495e;
 	figcaption {
 		padding: 1em;
 		&::before {
@@ -24,7 +25,6 @@
 	}
 	img {
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		opacity: 0.85;
 	}
 	p {
 		a {
@@ -64,9 +64,6 @@
 			&::after {
 				@include prefix(transform, translate3d(0, 0, 0), webkit);
 			}
-		}
-		img {
-			opacity: 0.6;
 		}
 		h2 {
 			@include prefix(transform, translate3d(0, 0, 0), webkit);

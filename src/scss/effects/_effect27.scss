@@ -1,6 +1,5 @@
 .e-image-item.effect-jazz {
 	img {
-		opacity: 0.9;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
 	}
 	figcaption {
@@ -36,7 +35,6 @@
 	}
 	&:hover, &.effect-hover {
 		img {
-			opacity: 0.7;
 			@include prefix(transform, scale3d(1.05, 1.05, 1), webkit);
 		}
 		figcaption {

@@ -26,9 +26,6 @@
 		}
 	}
 	&:hover, &.effect-hover {
-		img {
-			opacity: 0.5;
-		}
 		p {
 			opacity: 1;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);

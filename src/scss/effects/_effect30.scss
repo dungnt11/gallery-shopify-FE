@@ -16,7 +16,6 @@
 	}
 	&:hover, &.effect-hover {
 		img {
-			opacity: 0.1;
 			@include prefix(transform, scale3d(2, 2, 1), webkit);
 		}
 		h2 {

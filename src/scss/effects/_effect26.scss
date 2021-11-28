@@ -1,6 +1,5 @@
 .e-image-item.effect-moses {
 	img {
-		opacity: 0.85;
 		@include prefix(transition, opacity 0.35s, webkit);
 	}
 	h2 {
@@ -32,9 +31,6 @@
 		p {
 			opacity: 1;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		img {
-			opacity: 0.6;
 		}
 	}
 }

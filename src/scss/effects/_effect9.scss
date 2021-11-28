@@ -25,6 +25,7 @@
 		&::after {
 			@include absolute(top 100% left 0);
 			@include box(100%, 4px);
+			background: #fff;
 			content: "";
 			opacity: 0;
 			@include prefix(transform, translate3d(0, 40px, 0), webkit);

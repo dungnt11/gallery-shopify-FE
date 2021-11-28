@@ -1,6 +1,6 @@
 .e-image-item.effect-selena {
+	background: #fff;
 	img {
-		opacity: 0.95;
 		@include prefix(transition, transform 0.35s, webkit);
 		@include prefix(transform-origin, 50% 50%, webkit);
 	}

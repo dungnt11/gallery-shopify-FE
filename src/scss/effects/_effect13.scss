@@ -1,4 +1,5 @@
 .e-image-item.effect-sarah {
+	background: #42b078;
 	img {
 		max-width: none;
 		width: -webkit-calc(100% + 20px);
@@ -9,7 +10,6 @@
 	}
 	&:hover, &.effect-hover {
 		img {
-			opacity: 0.4;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);
 		}
 		h2 {
@@ -32,6 +32,7 @@
 		&::after {
 			@include absolute(bottom 0 left 0);
 			@include box(100%, 3px);
+			background: #fff;
 			content: "";
 			@include prefix(transition, transform 0.35s, webkit);
 			@include prefix(transform, translate3d(-100%, 0, 0), webkit);

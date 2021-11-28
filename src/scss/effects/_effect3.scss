@@ -1,7 +1,6 @@
 .e-image-item.effect-roxy {
 	&:hover, &.effect-hover {
 		img {
-			opacity: 0.7;
 			@include prefix(transform, translate3d(0, 0, 0), webkit);
 		}
 		figcaption {

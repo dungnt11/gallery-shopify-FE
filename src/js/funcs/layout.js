@@ -33,7 +33,7 @@ function buildLinkRedirect(link) {
 function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   const { gallery } = galleryDB;
   const images = customImage || galleryDB.images;
-  const { settings, rowGap, columnGap } = gallery;
+  const { settings, rowGap, columnGap, effect } = gallery;
   const {
     box,
     background,
@@ -44,6 +44,13 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   let imagesDOM = '';
   let cssAppend = '';
   const aosScrollAnimation = aosDOMFnc(galleryDB.gallery.settings.scrollAnimation);
+
+  // Build overlay gallery
+  cssAppend += `
+    e-gallery-widget[data-id="${galleryHandle}"] .e-gallery__item:hover img {
+      opacity: ${effect.opacityImage / 100};
+    }
+  `;
 
   images.forEach((image) => {
     const lastBlock = getLastBlock(images);

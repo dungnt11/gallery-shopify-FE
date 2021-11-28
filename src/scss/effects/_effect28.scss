@@ -1,6 +1,6 @@
 .e-image-item.effect-ming {
+	background: #030c17;
 	img {
-		opacity: 0.9;
 		@include prefix(transition, opacity 0.35s, webkit);
 	}
 	figcaption {
@@ -42,9 +42,6 @@
 		p {
 			opacity: 1;
 			@include prefix(transform, scale3d(1, 1, 1), webkit);
-		}
-		img {
-			opacity: 0.4;
 		}
 	}
 }
