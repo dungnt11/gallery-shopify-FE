@@ -1,5 +1,4 @@
 .e-image-item.effect-layla {
-	background: #18a367;
 	&:hover, &.effect-hover {
 		img {
 			@include prefix(transform, translate3d(0, 0, 0), webkit);
