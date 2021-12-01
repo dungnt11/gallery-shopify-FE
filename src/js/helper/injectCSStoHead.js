@@ -23,16 +23,4 @@ function removeCSSInHead(id) {
   if (styleRemoved) styleRemoved.remove();
 }
 
-function injectCSSGlobalToHead() {
-  if (process.env.NODE_ENV !== 'development') {
-    const head = document.head || document.getElementsByTagName('head')[0],
-      link = document.createElement('link');
-
-    link.rel = 'stylesheet';
-    link.id = 'etify-css';
-    link.href = `https://css-gallery.ehandytech.com/css/style.min.css?v=${process.env.VERSION}`;
-    head.appendChild(link);
-  }
-}
-
-export { injectCSSToHead, removeCSSInHead, injectCSSGlobalToHead };
+export { injectCSSToHead, removeCSSInHead };

@@ -7,12 +7,11 @@ import { LightBox } from './funcs/lightbox';
 import { titleAndDescriptionFnc } from './funcs/titleAndDescription';
 // Helper
 import { registerDisplay } from './helper/breakpoint';
-import { injectCSSToHead, injectCSSGlobalToHead } from './helper/injectCSStoHead';
+import { injectCSSToHead } from './helper/injectCSStoHead';
 import { getJsonSettings } from './helper/get-json';
 
 class Gallery {
   async init() {
-    injectCSSGlobalToHead();
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
     if (!galleriesDOM.length) return;
     // Fetch settings
