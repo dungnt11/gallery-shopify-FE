@@ -37,4 +37,4 @@ class EGallery {
   }
 }
 
-new EGallery();
+window.eGallery = new EGallery();
