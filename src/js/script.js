@@ -10,7 +10,7 @@ import { registerDisplay } from './helper/breakpoint';
 import { injectCSSToHead } from './helper/injectCSStoHead';
 import { getJsonSettings } from './helper/get-json';
 
-class Gallery {
+class EGallery {
   async init() {
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
     if (!galleriesDOM.length) return;
@@ -37,6 +37,4 @@ class Gallery {
   }
 }
 
-const gallery = new Gallery();
-// Initial
-gallery.init();
+new EGallery();

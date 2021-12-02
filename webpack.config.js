@@ -1,11 +1,10 @@
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const fs = require("fs");
+const TerserPlugin = require("terser-webpack-plugin");
 
 function generateHtmlTemplate(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -70,7 +69,6 @@ module.exports = {
         // }
       ]
     }),
-    new UnminifiedWebpackPlugin(),
   ].concat(htmlPlugins),
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -79,8 +77,14 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new UglifyJsPlugin({
-      include: /\.min\.js/,
-    })],
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          keep_classnames: true,
+          keep_fnames: true,
+          mangle: true,
+        }
+      })
+    ]
   }
 };
