@@ -37,4 +37,7 @@ class EGallery {
   }
 }
 
-window.eGallery = new EGallery();
+document.addEventListener('DOMContentLoaded', function() {
+  const eGallery = new EGallery();
+  eGallery.init();
+}, false);

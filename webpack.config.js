@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const fs = require("fs");
-const TerserPlugin = require("terser-webpack-plugin");
 
 function generateHtmlTemplate(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -77,14 +76,5 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          keep_classnames: true,
-          keep_fnames: true,
-          mangle: true,
-        }
-      })
-    ]
   }
 };
