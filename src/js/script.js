@@ -13,8 +13,6 @@ import { getJsonSettings } from './helper/get-json';
 class EGallery {
   async init() {
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
-    const isScriptInited = Array.from(galleriesDOM).some((galleryDOMArg) => galleryDOMArg.innerHTML);
-    if (isScriptInited) return;
     if (!galleriesDOM.length) return;
     // Fetch settings
     await getJsonSettings();
