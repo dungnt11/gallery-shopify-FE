@@ -13,6 +13,8 @@ import { getJsonSettings } from './helper/get-json';
 class EGallery {
   async init() {
     const galleriesDOM = document.querySelectorAll('e-gallery-widget');
+    const isScriptInited = Array.from(galleriesDOM).some((galleryDOMArg) => galleryDOMArg.innerHTML);
+    if (isScriptInited) return;
     if (!galleriesDOM.length) return;
     // Fetch settings
     await getJsonSettings();
@@ -37,7 +39,6 @@ class EGallery {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const eGallery = new EGallery();
-  eGallery.init();
-}, false);
+const gallery = new EGallery();
+window.eGallery = gallery;
+gallery.init();
