@@ -45,9 +45,9 @@ function loadmoreFn(galleryDOM, galleryDB, blockSorted, displayActive) {
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: "0px 0px -400px 0px" });
+      }, { rootMargin: "0px 0px -100px 0px" });
       // Register observer item
-      observer.observe(lastBlock)
+      observer.observe(lastBlock);
     } else {
       const galleryID = galleryDOM.getAttribute('data-id');
       // Fix resize reinit quá nhiều

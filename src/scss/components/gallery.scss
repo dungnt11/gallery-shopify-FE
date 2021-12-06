@@ -8,6 +8,10 @@ e-gallery-widget {
 		box-sizing: border-box;
 	}
 
+	.e-loading {
+		background-color: #ccc;
+	}
+
 	.e-image-item img {
 		@include box(100%);
 		object-fit: cover;

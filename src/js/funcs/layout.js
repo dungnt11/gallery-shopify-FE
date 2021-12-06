@@ -39,6 +39,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
     background,
     limit,
     loadmore,
+    typeFilter, isEnableFilter,
   } = settings;
 
   let imagesDOM = '';
@@ -59,7 +60,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
 
     imagesDOM += `
       <div
-        class="e-gallery__item${classHideElement}"
+        class="e-gallery__item${classHideElement} e-loading"
         id="${image.id}"
         ${aosScrollAnimation}
       >
@@ -118,6 +119,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       }
     });
   });
+
   cssAppend += `e-gallery-widget[data-id="${galleryHandle}"] figure {
     color: ${gallery.effect.textColor.color} !important;
   }`;
@@ -130,6 +132,29 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   cssAppend += buildBackgroundFn(galleryHandle, background);
 
   galleryDOMArg.innerHTML = imagesDOM;
+
+  if (typeFilter !== 'loadmore' && !isEnableFilter) {
+    document.querySelectorAll('.e-gallery__item').forEach((galleryItemDOM) => {
+      const imageDOM = galleryItemDOM.querySelector('img');
+      if (!imageDOM) return;
+      imageDOM.addEventListener('load', function() {
+        galleryItemDOM.classList.remove('e-loading');
+      });
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const dataSrc = entry.target.getAttribute('data-src');
+            if (dataSrc) {
+              entry.target.setAttribute('src', dataSrc);
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -100px 0px" });
+      observer.observe(imageDOM);
+    });
+  }
+
   return cssAppend;
 }
 
