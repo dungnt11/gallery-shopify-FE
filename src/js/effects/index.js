@@ -11,7 +11,7 @@ function effectBase(image, galleryDB, isHideElement) {
 	/**
 	 * isHideElement - ẩn SRC để tránh việc client load ảnh bị ẩn này
 	 */
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${isHideElement ? "" : getThumbnailSrcImage(src)}" />`;
+	const imageDOM = `<img class="${classImg} lazy" ${dataRate} alt="${alt}" data-src="${isHideElement ? "" : getThumbnailSrcImage(src)}" />`;
 	const effectView = effect.isCustom ? image.effect : galleryDB.gallery.effect;
 	/**
 	 * Mọi thứ đang ăn theo effect tổng
@@ -36,7 +36,7 @@ function effectLimitBase(image, galleryDB, prevClass) {
 
 	const classImg = enable ? ' parallax' : '';
 	const dataRate = enable ? 'data-rate="2"' : '';
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${src}" src="${getThumbnailSrcImage(src)}" />`;
+	const imageDOM = `<img class="${classImg} lazy" ${dataRate} alt="${alt}" data-src="${getThumbnailSrcImage(src)}" />`;
 
 	const textLimit = limit.text.replace('{number}', images.length - limit.items);
 	return effectLimit(imageDOM, textLimit, prevClass);

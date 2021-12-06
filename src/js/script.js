@@ -1,3 +1,4 @@
+import LazyLoad from 'vanilla-lazyload';
 // Func
 import { AosBase } from './funcs/aos';
 import { parallaxAnimation } from './funcs/paralax';
@@ -33,7 +34,18 @@ class EGallery {
 
     if (isInitParallax) parallaxAnimation();
     if (isInitAos) new AosBase();
+
+    const callback = function (element) {
+      element.src = '';
+      element.style.background = 'rgb(181 181 181)';
+    };
+
     new LightBox();
+    new LazyLoad({
+      use_native: false,
+      callback_error: callback,
+      callback_enter: callback,
+    });
   }
 }
 
