@@ -150,7 +150,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
             observer.unobserve(entry.target);
           }
         });
-      }, { rootMargin: "0px 0px -100px 0px" });
+      }, { rootMargin: "0px 0px -20px 0px" });
       observer.observe(imageDOM);
     });
   }
