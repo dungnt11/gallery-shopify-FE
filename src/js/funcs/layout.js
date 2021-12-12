@@ -132,8 +132,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   cssAppend += buildBackgroundFn(galleryHandle, background);
 
   galleryDOMArg.innerHTML = imagesDOM;
-
-  if (typeFilter !== 'loadmore' && !isEnableFilter) {
+  if (!(typeFilter === 'loadmore' && isEnableFilter && loadmore.typeLoad === 'infinity-scroll')) {
     document.querySelectorAll('.e-gallery__item').forEach((galleryItemDOM) => {
       const imageDOM = galleryItemDOM.querySelector('img');
       if (!imageDOM) return;
