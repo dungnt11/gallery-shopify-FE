@@ -6,9 +6,11 @@ async function getJsonByShop(handleGallery) {
   if (!hostname && process.env.NODE_ENV !== 'development') {return;}
   const shopName = getShop(hostname);
   let urlJSON = `${process.env.URL_GALLERY_APP}/${shopName}/${handleGallery}.json?t=${Date.now()}`;
-  if (window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
+  const locationSearchDecode = decodeURIComponent(window.location.search);
+  
+  if (locationSearchDecode.includes('?preview=true&gallery=') && locationSearchDecode.includes('.json')) {
     document.body.classList.add('font-active');
-    urlJSON = `${process.env.URL_GALLERY_APP}/${window.location.search.replace('?preview=true&gallery=', '')}?t=${Date.now()}`;
+    urlJSON = `${process.env.URL_GALLERY_APP}/${locationSearchDecode.replace('?preview=true&gallery=', '')}?t=${Date.now()}`;
     settingsGallery.setConfig({ isPreviewMode: true });
   }
   const resGallery = await fetch(urlJSON, {
@@ -23,9 +25,13 @@ async function getJsonSettings() {
   const hostname = window.location.hostname;
   if (!hostname && process.env.NODE_ENV !== 'development') {return;}
   let shopName = getShop(hostname);
-  if (window.location.search.includes('?preview=true&gallery=') && window.location.search.includes('.json')) {
+  const locationSearchDecode = decodeURIComponent(window.location.search);
+  if (locationSearchDecode.includes('?preview=true&gallery=') && locationSearchDecode.includes('.json')) {
     const regex = /&gallery=(.*?)\//gm;
-    shopName = regex.exec(window.location.search)[1];
+    const shopNameRegex = regex.exec(locationSearchDecode);
+    if (shopNameRegex) {
+      shopName = shopNameRegex[1];
+    }
   }
   const urlJSON = `${process.env.URL_GALLERY_APP}/settings/${shopName}.json?t=${Date.now()}`;
   try {
