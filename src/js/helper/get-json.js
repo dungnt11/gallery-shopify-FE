@@ -9,7 +9,7 @@ async function getJsonByShop(handleGallery) {
   const locationSearchDecode = decodeURIComponent(window.location.search);
   
   if (locationSearchDecode.includes('?preview=true&gallery=') && locationSearchDecode.includes('.json')) {
-    document.body.classList.add('font-active');
+    document.body.classList.add('e-gallery-preview');
     urlJSON = `${process.env.URL_GALLERY_APP}/${locationSearchDecode.replace('?preview=true&gallery=', '')}?t=${Date.now()}`;
     settingsGallery.setConfig({ isPreviewMode: true });
   }

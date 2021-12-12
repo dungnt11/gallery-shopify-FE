@@ -16,7 +16,7 @@ function aosDOMFnc(scrollSettings) {
 	} = scrollSettings;
 	if (!enable) return '';
 	// galleryDOM - DOM gallery tổng
-	return `data-aos-offset=200
+	return `data-aos-offset=120
 	data-aos-delay=50
 	data-aos-duration=300
 	data-aos-once=true

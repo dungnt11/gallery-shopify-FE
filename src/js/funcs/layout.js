@@ -37,14 +37,14 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   const {
     box,
     background,
-    limit,
     loadmore,
     typeFilter, isEnableFilter,
+    scrollAnimation,
   } = settings;
 
   let imagesDOM = '';
   let cssAppend = '';
-  const aosScrollAnimation = aosDOMFnc(galleryDB.gallery.settings.scrollAnimation);
+  const aosScrollAnimation = aosDOMFnc(scrollAnimation);
 
   // Build overlay gallery
   cssAppend += `
@@ -52,10 +52,9 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       opacity: ${effect.opacityImage / 100};
     }
   `;
-
   images.forEach((image) => {
     const lastBlock = getLastBlock(images);
-    const classHideElement = (limit.enable || loadmore.enable) ? ' e-gallery_hidden' : '';
+    const classHideElement = isEnableFilter ? ' e-gallery_hidden' : '';
     const marginTop = image.effect.margin;
 
     imagesDOM += `
@@ -67,11 +66,11 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
         ${
           (image.effect.video.enable && image.effect.video.url) ? (
             `<a href="${image.effect.video.url}" class="glightbox">
-              ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
+              ${classHideElement ? '<div></div>' : effectBase(image, galleryDB)}
             </a>`
           ) : (
             `<a href="${image.effect.link ? buildLinkRedirect(image.effect.link) : image.src}" ${!image.effect.link ? 'class="glightbox"' : ''}>
-              ${classHideElement ? '<div></div>' : effectBase(image, galleryDB, classHideElement)}
+              ${classHideElement ? '<div></div>' : effectBase(image, galleryDB)}
             </a>`
           )
         }

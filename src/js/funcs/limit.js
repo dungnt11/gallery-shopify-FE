@@ -7,14 +7,13 @@ function limitFn(galleryDOM, galleryDB, blockSorted, displayActive) {
   const { typeFilter, isEnableFilter } = settings;
   if (typeFilter === 'limit' && isEnableFilter) {
     const limitItem = settings.limit.items + 1;
-  
     blockSorted.forEach((galleryItem, ind) => {
       const galleryShow = galleryDOM.querySelector(`.e-gallery__item[id="${galleryItem.id}"]`);
       let imageItem = galleryShow.querySelector('img');
       let srcOrigin = imageItem ? imageItem.getAttribute('data-src') : undefined;
       galleryShow.classList.add('e-gallery_hidden');
       // Set inner and refind DOM
-      galleryShow.firstElementChild.innerHTML = effectBase(galleryItem, galleryDB, true);
+      galleryShow.firstElementChild.innerHTML = effectBase(galleryItem, galleryDB);
       imageItem = galleryShow.firstElementChild.querySelector('img');
       srcOrigin = imageItem ? imageItem.getAttribute('data-src') : undefined;
       if (imageItem) imageItem.setAttribute('src', '');

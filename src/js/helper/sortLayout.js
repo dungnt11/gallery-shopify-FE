@@ -11,7 +11,7 @@
 function sortLayout(images, displayActive) {
   // Init image x=0; y=0;
   const indFirstImage = images.findIndex((image) => !image.layout[displayActive].x && !image.layout[displayActive].y);
-  const imageSortStore = [images[indFirstImage]];
+  const imageSortStore = [images[indFirstImage !== -1 ? indFirstImage : 0]];
   // Y tăng dần
   let maxY = [];
   images.forEach((image) => {
