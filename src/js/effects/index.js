@@ -3,13 +3,13 @@ import { getThumbnailSrcImage } from '../helper/thumbnail-src-image';
 import { EFFECTS_DEFINED } from './defined';
 
 function effectBase(image, galleryDB) {
-	const { parallax } = galleryDB.gallery.settings;
+	const { parallax, scrollAnimation } = galleryDB.gallery.settings;
 	const { effect, src, alt } = image;
 
 	const classImg = `e-gallery__image${parallax.enable ? ' parallax' : ''}`;
 	const dataRate = parallax.enable ? 'data-rate="0.9"' : '';
 
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" data-src="${getThumbnailSrcImage(src)}" />`;
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" ${scrollAnimation.enable ? "" : "data-"}src="${getThumbnailSrcImage(src)}" />`;
 	const effectView = effect.isCustom ? image.effect : galleryDB.gallery.effect;
 	/**
 	 * Mọi thứ đang ăn theo effect tổng
