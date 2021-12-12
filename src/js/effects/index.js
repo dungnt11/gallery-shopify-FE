@@ -4,12 +4,13 @@ import { EFFECTS_DEFINED } from './defined';
 
 function effectBase(image, galleryDB) {
 	const { parallax, scrollAnimation } = galleryDB.gallery.settings;
+	const forceShowSrc = scrollAnimation.enable;
 	const { effect, src, alt } = image;
 
 	const classImg = `e-gallery__image${parallax.enable ? ' parallax' : ''}`;
 	const dataRate = parallax.enable ? 'data-rate="0.9"' : '';
 
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" ${scrollAnimation.enable ? "" : "data-"}src="${getThumbnailSrcImage(src)}" />`;
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" ${forceShowSrc ? "" : "data-"}src="${getThumbnailSrcImage(src)}" />`;
 	const effectView = effect.isCustom ? image.effect : galleryDB.gallery.effect;
 	/**
 	 * Mọi thứ đang ăn theo effect tổng
@@ -30,10 +31,9 @@ function effectLimitBase(image, galleryDB, prevClass) {
 
 	const { gallery, images } = galleryDB;
 	const { parallax, limit, scrollAnimation } = gallery.settings;
-	const { enable } = parallax;
 
-	const classImg = enable ? ' parallax' : '';
-	const dataRate = enable ? 'data-rate="2"' : '';
+	const classImg = parallax.enable ? ' parallax' : '';
+	const dataRate = scrollAnimation.enable ? 'data-rate="2"' : '';
 	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" ${scrollAnimation.enable ? "" : "data-"}src="${getThumbnailSrcImage(src)}" />`;
 
 	const textLimit = limit.text.replace('{number}', images.length - limit.items);

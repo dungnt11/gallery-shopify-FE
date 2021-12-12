@@ -1,4 +1,3 @@
-import { getThumbnailSrcImage } from '../helper/thumbnail-src-image';
 import { effectLimitBase, effectBase } from '../effects';
 
 function limitFn(galleryDOM, galleryDB, blockSorted, displayActive) {
@@ -20,7 +19,7 @@ function limitFn(galleryDOM, galleryDB, blockSorted, displayActive) {
   
       if (ind < limitItem && imageItem && srcOrigin) {
         galleryShow.classList.remove('e-gallery_hidden');
-        imageItem.setAttribute('src', getThumbnailSrcImage(srcOrigin));
+        imageItem.setAttribute('src', srcOrigin);
       }
   
       // Create limit effect and async effect

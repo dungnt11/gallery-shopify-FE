@@ -1,5 +1,6 @@
 import { buildLayoutFn } from '../funcs/layout';
 import { LightBox } from '../funcs/lightbox';
+import { lazyload } from '../funcs/lazyload';
 import { injectCSSToHead, removeCSSInHead } from '../helper/injectCSStoHead';
 
 function filterFn(galleryDOMArg, galleryDB) {
@@ -74,6 +75,7 @@ function filterFn(galleryDOMArg, galleryDB) {
         }
         new LightBox();
         preLabel = dataLabel;
+        lazyload(galleryDB);
       }
     });
   }

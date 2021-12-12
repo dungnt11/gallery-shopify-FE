@@ -37,8 +37,6 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   const {
     box,
     background,
-    loadmore,
-    typeFilter, isEnableFilter,
     scrollAnimation,
   } = settings;
 
@@ -130,27 +128,6 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
   cssAppend += buildBackgroundFn(galleryHandle, background);
 
   galleryDOMArg.innerHTML = imagesDOM;
-  if (!(typeFilter === 'loadmore' && isEnableFilter && loadmore.typeLoad === 'infinity-scroll')) {
-    document.querySelectorAll('.e-gallery__item').forEach((galleryItemDOM) => {
-      const imageDOM = galleryItemDOM.querySelector('img');
-      if (!imageDOM) return;
-      imageDOM.addEventListener('load', function() {
-        galleryItemDOM.classList.remove('e-loading');
-      });
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const dataSrc = entry.target.getAttribute('data-src');
-            if (dataSrc) {
-              entry.target.setAttribute('src', dataSrc);
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: "0px 0px -20px 0px" });
-      observer.observe(imageDOM);
-    });
-  }
 
   return cssAppend;
 }

@@ -1,3 +1,5 @@
+import { lazyload } from '../funcs/lazyload';
+
 import { effectBase } from '../effects';
 import { btn1, btn2 } from '../buttons';
 
@@ -30,6 +32,7 @@ function loadmoreFn(galleryDOM, galleryDB, blockSorted, displayActive) {
     if (loadmore.typeLoad === 'button') autoHeightGridGallery(lastBlockDOMAfterCreateFirstBlock);
   
     let lastBlock = galleryDOM.querySelector(`.e-gallery__item:nth-child(${imageLoaded})`);
+    // Scroll to loadmore
     if (loadmore.typeLoad === 'infinity-scroll') {
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach((entry) => {
@@ -96,7 +99,7 @@ function loadmoreFn(galleryDOM, galleryDB, blockSorted, displayActive) {
         }
         // Fake loading
         setTimeout(() => {
-          const lastBlockDOM = showMoreBlock(imageLoaded + loadmore.load);
+          const lastBlockDOM = showMoreBlock(imageLoaded + loadmore.load + 1);
           if (typeof lastBlockDOM === 'undefined') buttonLoadmoreDOM.remove();
           autoHeightGridGallery(lastBlockDOM);
           imageLoaded = imageLoaded + loadmore.load;
@@ -109,7 +112,8 @@ function loadmoreFn(galleryDOM, galleryDB, blockSorted, displayActive) {
             progressDOM.style.visibility = 'hidden';
             progressDOM.style.display = 'none';
           }
-        }, 500);
+        lazyload(galleryDB);
+        }, 200);
       }
     }
   }
