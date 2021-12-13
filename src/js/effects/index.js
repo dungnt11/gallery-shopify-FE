@@ -3,8 +3,12 @@ import { getThumbnailSrcImage } from '../helper/thumbnail-src-image';
 import { EFFECTS_DEFINED } from './defined';
 
 function effectBase(image, galleryDB) {
-	const { parallax, scrollAnimation } = galleryDB.gallery.settings;
-	const forceShowSrc = scrollAnimation.enable;
+	const {
+		parallax, scrollAnimation,
+		typeFilter, isEnableFilter,
+	 } = galleryDB.gallery.settings;
+	let forceShowSrc = scrollAnimation.enable;
+	if (typeFilter === 'limit' && isEnableFilter) forceShowSrc = false;
 	const { effect, src, alt } = image;
 
 	const classImg = `e-gallery__image${parallax.enable ? ' parallax' : ''}`;
@@ -30,11 +34,16 @@ function effectLimitBase(image, galleryDB, prevClass) {
 	const { src, alt } = image;
 
 	const { gallery, images } = galleryDB;
-	const { parallax, limit, scrollAnimation } = gallery.settings;
+	const {
+		parallax, limit, scrollAnimation,
+		typeFilter, isEnableFilter,
+	} = gallery.settings;
 
+	let forceShowSrc = scrollAnimation.enable;
+	if (typeFilter === 'limit' && isEnableFilter) forceShowSrc = false;
 	const classImg = parallax.enable ? ' parallax' : '';
 	const dataRate = scrollAnimation.enable ? 'data-rate="2"' : '';
-	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" ${scrollAnimation.enable ? "" : "data-"}src="${getThumbnailSrcImage(src)}" />`;
+	const imageDOM = `<img class="${classImg}" ${dataRate} alt="${alt}" ${forceShowSrc ? "" : "data-"}src="${getThumbnailSrcImage(src)}" />`;
 
 	const textLimit = limit.text.replace('{number}', images.length - limit.items);
 	return effectLimit(imageDOM, textLimit, prevClass);
