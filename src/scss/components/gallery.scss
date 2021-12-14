@@ -15,10 +15,6 @@ e-gallery-widget {
 	.e-image-item img {
 		@include box(100%);
 		object-fit: cover;
-		&.parallax {
-			height: 200%;
-			top: -100%;
-		}
 	}
 	.e-image-item {
 		@include box(100%);
