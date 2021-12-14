@@ -6,9 +6,11 @@ function effectBase(image, galleryDB) {
 	const {
 		parallax, scrollAnimation,
 		typeFilter, isEnableFilter,
+		loadmore,
 	 } = galleryDB.gallery.settings;
 	let forceShowSrc = scrollAnimation.enable;
-	if (typeFilter === 'limit' && isEnableFilter) forceShowSrc = false;
+	if (isEnableFilter && (typeFilter === 'limit' || typeFilter === 'loadmore')) forceShowSrc = false;
+	if (isEnableFilter && typeFilter === 'loadmore' && loadmore.typeLoad === 'infinity-scroll') forceShowSrc = true;
 	const { effect, src, alt } = image;
 
 	const classImg = `e-gallery__image${parallax.enable ? ' parallax' : ''}`;
