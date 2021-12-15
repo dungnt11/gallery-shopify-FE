@@ -1,5 +1,4 @@
 .e-image-item.effect-ruby {
-	background-color: #17819c;
 	img {
 		opacity: 0.7;
 		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
