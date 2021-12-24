@@ -10,6 +10,7 @@ function effectBase(image, galleryDB) {
 	 } = galleryDB.gallery.settings;
 	let forceShowSrc = scrollAnimation.enable;
 	if (isEnableFilter && (typeFilter === 'limit' || typeFilter === 'loadmore')) forceShowSrc = false;
+	if (isEnableFilter && typeFilter === 'filter') forceShowSrc = true;
 	if (isEnableFilter && typeFilter === 'loadmore' && loadmore.typeLoad === 'infinity-scroll') forceShowSrc = true;
 	const { effect, src, alt } = image;
 
