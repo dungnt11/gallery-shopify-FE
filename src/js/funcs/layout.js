@@ -87,6 +87,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
         e-gallery-widget[data-id="${galleryHandle}"] {
           grid-gap: ${rowGap[display]}px ${columnGap[display]}px;
           grid-template-rows: repeat(${lastBlock[display]}, ${settings.rowHeight}px);
+          padding: ${rowGap[display]}px ${columnGap[display]}px;
         }
       `);
 
