@@ -1,7 +1,7 @@
 class SettingsGallery {
   constructor() {
     this.settings = {
-      enableOptimizeImage: false,
+      enableOptimizeImage: true,
       maxWidthImage: 500,
       myshopifyDomain: ''
     };
