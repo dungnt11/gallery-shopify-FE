@@ -50,6 +50,7 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
     e-gallery-widget[data-id="${galleryHandle}"] {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
+      box-sizing: border-box;
     }
   `;
   }
