@@ -1,122 +1,126 @@
 e-gallery-widget {
-	position: relative;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(12, 1fr);
+  position: relative;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
-	* {
-		box-sizing: border-box;
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	.e-loading {
-		background-color: #ccc;
-	}
+  .e-loading {
+    background-color: #ccc;
+  }
 
-	.e-image-item img {
-		@include box(100%);
-		object-fit: cover;
-	}
-	.e-image-item {
-		@include box(100%);
-		&:after {
-			position: absolute;
-			background: inherit;
-			content: '';
-			@include absolute(top 0 right 0 bottom 0 left 0);
-		}
-	}
-	
-	/* Common style */
-	figure.e-image-item {
-		position: relative;
-		float: left;
-		overflow: hidden;
-		text-align: center;
-		cursor: pointer;
-		height: 100%;
-		width: 100%;
-		margin: 0;
-	
-		img {
-			position: relative;
-			display: block;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-	
-		figcaption,
-		figcaption > a {
-			@include absolute(top 0 left 0);
-			@include box(100%);
-		}
-		figcaption {
-			padding: 2em;
-			text-transform: uppercase;
-			background: inherit;
-			font-size: 1.2em;
-			@include prefix(backface-visibility, hidden, webkit);
-			&:before,
-			&:after {
-				pointer-events: none;
-			}
-		}
-	}
-	
-	/* Anchor will cover the whole item by default */
-	/* For some effects it will show as a button */
-	figure.e-image-item figcaption > a {
-		z-index: 1000;
-		text-indent: 200%;
-		white-space: nowrap;
-		font-size: 0;
-		opacity: 0;
-	}
-	
-	figure.e-image-item h2 {
-		word-spacing: -0.15em;
-		font-weight: 300;
-	}
-	
-	figure.e-image-item h2 span {
-		font-weight: 800;
-	}
-	
-	figure.e-image-item h2,
-	figure.e-image-item p {
-		margin: 0;
-		color: inherit;
-	}
-	
-	figure.e-image-item p {
-		letter-spacing: 1px;
-		font-size: 68.5%;
-	}
+  .e-image-item img {
+    @include box(100%);
+    object-fit: cover;
+  }
+  .e-image-item {
+    @include box(100%);
+    &:after {
+      position: absolute;
+      background: inherit;
+      content: "";
+      @include absolute(top 0 right 0 bottom 0 left 0);
+    }
+  }
+
+  /* Common style */
+  figure.e-image-item {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+
+    img {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    figcaption,
+    figcaption > a {
+      @include absolute(top 0 left 0);
+      @include box(100%);
+    }
+    figcaption {
+      padding: 2em;
+      text-transform: uppercase;
+      background: inherit;
+      font-size: 1.2em;
+      @include prefix(backface-visibility, hidden, webkit);
+      &:before,
+      &:after {
+        pointer-events: none;
+      }
+    }
+  }
+
+  /* Anchor will cover the whole item by default */
+  /* For some effects it will show as a button */
+  figure.e-image-item figcaption > a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+  }
+
+  figure.e-image-item h2 {
+    word-spacing: -0.15em;
+    font-weight: 300;
+    font-size: 1em;
+  }
+
+  figure.e-image-item h2 span {
+    font-weight: 800;
+  }
+
+  figure.e-image-item h2,
+  figure.e-image-item p {
+    margin: 0;
+    color: inherit;
+  }
+
+  figure.e-image-item p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+  }
+}
+
+.e-gallery__item > a:hover {
+  opacity: 1 !important;
 }
 
 @media screen and (max-width: 50em) {
-	.content {
-		padding: 0 10px;
-		text-align: center;
-	}
-	.grid figure {
-		display: inline-block;
-		float: none;
-		margin: 10px auto;
-		width: 100%;
-	}
+  .content {
+    padding: 0 10px;
+    text-align: center;
+  }
+  .grid figure {
+    display: inline-block;
+    float: none;
+    margin: 10px auto;
+    width: 100%;
+  }
 }
-
 
 // Animation gradient effect
 @keyframes e-gallery-gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
