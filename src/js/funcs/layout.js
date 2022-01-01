@@ -38,11 +38,21 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
     box,
     background,
     scrollAnimation,
+    fullWidth,
   } = settings;
 
   let imagesDOM = '';
   let cssAppend = '';
   const aosScrollAnimation = aosDOMFnc(scrollAnimation);
+
+  if (!fullWidth.enable) {
+    cssAppend += `
+    e-gallery-widget[data-id="${galleryHandle}"] {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+  `;
+  }
 
   // Build overlay gallery
   cssAppend += `
@@ -107,12 +117,6 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
             }
           `);
         }
-      } else {
-        cssAppend += genResponsiveCode(display, `
-          e-gallery-widget[data-id="${galleryHandle}"] {
-            width: calc(100% - 20px);
-          }
-        `);
       }
     });
   });
