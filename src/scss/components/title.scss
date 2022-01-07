@@ -39,3 +39,9 @@
     margin: 0;
   }
 }
+
+.e-gallery-spacing-bottom {
+  & > * {
+    margin-bottom: 15px;
+  }
+}
