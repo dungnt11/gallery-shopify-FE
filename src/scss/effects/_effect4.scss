@@ -1,64 +1,65 @@
 .e-image-item.effect-bubba {
-	img {
-		opacity: 0.7;
-		@include prefix(transition, opacity 0.35s, webkit);
-	}
-	&:hover, &.effect-hover {
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-			}
-			&::after {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-			}
-		}
-		h2 {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-	}
-	figcaption {
-		> div {
-			height: 100%;
-			@include flexbox();
-			@include flex-direction(column);
-			@include align-items(center);
-			@include justify-content(center);
-		}
-		&::before {
-			@include absolute(top 30px right 30px bottom 30px left 30px);
-			content: "";
-			opacity: 0;
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			border-top: 1px solid #fff;
-			border-bottom: 1px solid #fff;
-			@include prefix(transform, scale(0, 1), webkit);
-		}
-		&::after {
-			@include absolute(top 30px right 30px bottom 30px left 30px);
-			content: "";
-			opacity: 0;
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			border-right: 1px solid #fff;
-			border-left: 1px solid #fff;
-			@include prefix(transform, scale(1, 0), webkit);
-		}
-	}
-	h2 {
-		padding-top: 15px;
-		@include prefix(transition, transform 0.35s, webkit);
-		@include prefix(transform, translate3d(0, -10px, 0), webkit);
-	}
-	p {
-		padding: 20px 2.5em;
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, translate3d(0, 20px, 0), webkit);
-	}
+  img {
+    opacity: 0.7;
+    @include prefix(transition, opacity 0.35s, webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    figcaption {
+      &::before {
+        opacity: 1;
+        @include prefix(transform, scale(1), webkit);
+      }
+      &::after {
+        opacity: 1;
+        @include prefix(transform, scale(1), webkit);
+      }
+    }
+    h2 {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+  }
+  figcaption {
+    > div {
+      height: 100%;
+      @include flexbox();
+      @include flex-direction(column);
+      @include align-items(center);
+      @include justify-content(center);
+    }
+    &::before {
+      @include absolute(top 30px right 30px bottom 30px left 30px);
+      content: "";
+      opacity: 0;
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+      border-top: 1px solid $figcaption-text-color;
+      border-bottom: 1px solid $figcaption-text-color;
+      @include prefix(transform, scale(0, 1), webkit);
+    }
+    &::after {
+      @include absolute(top 30px right 30px bottom 30px left 30px);
+      content: "";
+      opacity: 0;
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+      border-right: 1px solid $figcaption-text-color;
+      border-left: 1px solid $figcaption-text-color;
+      @include prefix(transform, scale(1, 0), webkit);
+    }
+  }
+  h2 {
+    padding-top: 15px;
+    @include prefix(transition, transform 0.35s, webkit);
+    @include prefix(transform, translate3d(0, -10px, 0), webkit);
+  }
+  p {
+    padding: 20px 2.5em;
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, translate3d(0, 20px, 0), webkit);
+  }
 }

@@ -8,6 +8,18 @@ e-gallery-widget {
     box-sizing: border-box;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 400;
+  }
+
   .e-loading {
     background-color: #ccc;
   }
@@ -31,11 +43,15 @@ e-gallery-widget {
     position: relative;
     float: left;
     overflow: hidden;
-    text-align: center;
     cursor: pointer;
     height: 100%;
     width: 100%;
     margin: 0;
+
+    background: $image-bg;
+    &:hover {
+      background: $figcaption-bg;
+    }
 
     img {
       position: relative;
@@ -51,8 +67,8 @@ e-gallery-widget {
       @include box(100%);
     }
     figcaption {
-      padding: 2em;
-      text-transform: uppercase;
+      padding: 1em;
+      z-index: 2;
       background: inherit;
       font-size: 1.2em;
       @include prefix(backface-visibility, hidden, webkit);
@@ -87,6 +103,7 @@ e-gallery-widget {
   figure.e-image-item p {
     margin: 0;
     color: inherit;
+    color: $figcaption-text-color;
   }
 
   figure.e-image-item p {
@@ -102,7 +119,6 @@ e-gallery-widget {
 @media screen and (max-width: 50em) {
   .content {
     padding: 0 10px;
-    text-align: center;
   }
   .grid figure {
     display: inline-block;

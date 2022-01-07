@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CssnanoPlugin = require('cssnano-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -78,7 +79,10 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new CssnanoPlugin()
+      new CssnanoPlugin(),
+      new UglifyJsPlugin({
+        include: /\.min\.js/,
+      })
     ]
   }
 };

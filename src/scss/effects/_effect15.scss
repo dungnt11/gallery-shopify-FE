@@ -1,46 +1,47 @@
 .e-image-item.effect-chico {
-	img {
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, scale(1.12), webkit);
-	}
-	&:hover, &.effect-hover {
-		img {
-			@include prefix(transform, scale(1), webkit);
-		}
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-			}
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, scale(1), webkit);
-		}
-	}
-	figcaption {
-		padding: 3em;
-		@include flexbox();
-		@include flex-direction(column);
-		@include align-items(center);
-		@include justify-content(center);
-		&::before {
-			@include absolute(top 30px right 30px bottom 30px left 30px);
-			border: 1px solid #fff;
-			content: "";
-			@include prefix(transform, scale(1.1), webkit);
-			opacity: 0;
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		}
-	}
-	p {
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		margin: 0 auto;
-		max-width: 200px;
-		@include prefix(transform, scale(1.5), webkit);
-	}
-	h2 {
-		padding: 20% 0 20px 0;
-	}
+  img {
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, scale(1.12), webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    img {
+      @include prefix(transform, scale(1), webkit);
+    }
+    figcaption {
+      &::before {
+        opacity: 1;
+        @include prefix(transform, scale(1), webkit);
+      }
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, scale(1), webkit);
+    }
+  }
+  figcaption {
+    padding: 3em;
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(center);
+    &::before {
+      @include absolute(top 30px right 30px bottom 30px left 30px);
+      border: 1px solid $figcaption-text-color;
+      content: "";
+      @include prefix(transform, scale(1.1), webkit);
+      opacity: 0;
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    }
+  }
+  p {
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    margin: 0 auto;
+    max-width: 200px;
+    @include prefix(transform, scale(1.5), webkit);
+  }
+  h2 {
+    padding: 20% 0 20px 0;
+  }
 }

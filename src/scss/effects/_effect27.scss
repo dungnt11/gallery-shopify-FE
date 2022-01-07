@@ -1,55 +1,64 @@
 .e-image-item.effect-jazz {
-	img {
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-	}
-	figcaption {
-		@include flexbox();
-		@include flex-direction(column);
-		@include align-items(center);
-		@include justify-content(center);
-		&::after {
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			@include absolute(top 0 left 0);
-			@include box(100%);
-			border-top: 1px solid #fff;
-			border-bottom: 1px solid #fff;
-			content: "";
-			opacity: 0;
-			@include prefix(transform, rotate3d(0, 0, 1, 45deg) scale3d(1, 0, 1), webkit);
-			@include prefix(transform-origin, 50% 50%, webkit);
-		}
-	}
-	p {
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		opacity: 1;
-		@include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
-		padding: 0.5em 2em;
-		text-transform: none;
-		font-size: 0.85em;
-		opacity: 0;
-	}
-	h2 {
-		opacity: 1;
-		@include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
-		@include prefix(transition, transform 0.35s, webkit);
-	}
-	&:hover, &.effect-hover {
-		img {
-			@include prefix(transform, scale3d(1.05, 1.05, 1), webkit);
-		}
-		figcaption {
-			&::after {
-				opacity: 1;
-				@include prefix(transform, rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1), webkit);
-			}
-		}
-		h2 {
-			opacity: 1;
-			@include prefix(transform, scale3d(1, 1, 1), webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, scale3d(1, 1, 1), webkit);
-		}
-	}
+  img {
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+  }
+  figcaption {
+    @include flexbox();
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(center);
+    &::after {
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+      @include absolute(top 0 left 0);
+      @include box(100%);
+      border-top: 1px solid $figcaption-text-color;
+      border-bottom: 1px solid $figcaption-text-color;
+      content: "";
+      opacity: 0;
+      @include prefix(
+        transform,
+        rotate3d(0, 0, 1, 45deg) scale3d(1, 0, 1),
+        webkit
+      );
+      @include prefix(transform-origin, 50% 50%, webkit);
+    }
+  }
+  p {
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    opacity: 1;
+    @include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
+    padding: 0.5em 2em;
+    text-transform: none;
+    font-size: 0.85em;
+    opacity: 0;
+  }
+  h2 {
+    opacity: 1;
+    @include prefix(transform, scale3d(0.8, 0.8, 1), webkit);
+    @include prefix(transition, transform 0.35s, webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    img {
+      @include prefix(transform, scale3d(1.05, 1.05, 1), webkit);
+    }
+    figcaption {
+      &::after {
+        opacity: 1;
+        @include prefix(
+          transform,
+          rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1),
+          webkit
+        );
+      }
+    }
+    h2 {
+      opacity: 1;
+      @include prefix(transform, scale3d(1, 1, 1), webkit);
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, scale3d(1, 1, 1), webkit);
+    }
+  }
 }

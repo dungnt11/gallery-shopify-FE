@@ -1,0 +1,9 @@
+[class^="imghvr-"],
+[class*=" imghvr-"] {
+  &:hover,
+  &.effect-hover {
+    background-color: rgba($color: #000000, $alpha: 0);
+  }
+}
+
+@import "imagehover";

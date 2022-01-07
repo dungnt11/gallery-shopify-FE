@@ -1,47 +1,48 @@
 .e-image-item.effect-oscar {
-	&:hover, &.effect-hover {
-		h2 {
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, scale(1), webkit);
-			}
-			background-color: rgba(58, 52, 42, 0);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, scale(1), webkit);
-		}
-	}
-	img {
-		@include prefix(transition, opacity 0.35s, webkit);
-	}
-	figcaption {
-		padding: 3em;
-		@include flexbox();
-		@include align-items(center);
-		@include justify-content(center);
-		@include flex-direction(column);
-		@include prefix(transition, background-color 0.35s, webkit);
-		&::before {
-			@include absolute(top 30px right 30px bottom 30px left 30px);
-			border: 1px solid #fff;
-			content: "";
-			opacity: 0;
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			@include prefix(transform, scale(0), webkit);
-		}
-	}
-	h2 {
-		margin: 0 0 10px 0;
-		@include prefix(transition, transform 0.35s, webkit);
-		@include prefix(transform, translate3d(0, 100%, 0), webkit);
-	}
-	p {
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, scale(0), webkit);
-	}
+  &:hover,
+  &.effect-hover {
+    h2 {
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+    figcaption {
+      &::before {
+        opacity: 1;
+        @include prefix(transform, scale(1), webkit);
+      }
+      background-color: rgba(58, 52, 42, 0);
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, scale(1), webkit);
+    }
+  }
+  img {
+    @include prefix(transition, opacity 0.35s, webkit);
+  }
+  figcaption {
+    padding: 3em;
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    @include prefix(transition, background-color 0.35s, webkit);
+    &::before {
+      @include absolute(top 30px right 30px bottom 30px left 30px);
+      border: 1px solid $figcaption-text-color;
+      content: "";
+      opacity: 0;
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+      @include prefix(transform, scale(0), webkit);
+    }
+  }
+  h2 {
+    margin: 0 0 10px 0;
+    @include prefix(transition, transform 0.35s, webkit);
+    @include prefix(transform, translate3d(0, 100%, 0), webkit);
+  }
+  p {
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, scale(0), webkit);
+  }
 }

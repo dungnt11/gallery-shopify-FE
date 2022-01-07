@@ -51,6 +51,10 @@ function buildLayoutFn(galleryDOMArg, galleryDB, galleryHandle, customImage) {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
       box-sizing: border-box;
+
+      --figcaption-bg: ${effect.overlayColor.color};
+      --image-bg: ${effect.bgColor.color};
+      --figcaption-text-color: ${effect.textColor.color};
     }
   `;
   }

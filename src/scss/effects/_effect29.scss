@@ -1,51 +1,52 @@
 .e-image-item.effect-lexi {
-	img {
-		max-width: none;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(backface-visibility, hidden, webkit);
-	}
-	figcaption {
-		&::before {
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			@include absolute(right -100px bottom -100px);
-			@include box(300px);
-			border: 2px solid #fff;
-			border-radius: 50%;
-			box-shadow: 0 0 0 900px rgba(255, 255, 255, 0.2);
-			content: "";
-			opacity: 0;
-			@include prefix(transform, scale3d(0.5, 0.5, 1), webkit);
-			@include prefix(transform-origin, 50% 50%, webkit);
-		}
-	}
-	p {
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include absolute(right 0 bottom 0);
-		padding: 0 1.5em 1.5em 0;
-		width: 140px;
-		text-align: right;
-		opacity: 0;
-		@include prefix(transform, translate3d(20px, 20px, 0), webkit);
-	}
-	&:hover, &.effect-hover {
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, scale3d(1, 1, 1), webkit);
-			}
-		}
-		h2 {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-	}
-	h2 {
-		text-align: left;
-		@include prefix(transition, transform 0.35s, webkit);
-		@include prefix(transform, translate3d(5px, 5px, 0), webkit);
-	}
+  img {
+    max-width: none;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(backface-visibility, hidden, webkit);
+  }
+  figcaption {
+    &::before {
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+      @include absolute(right -100px bottom -100px);
+      @include box(300px);
+      border: 2px solid $figcaption-text-color;
+      border-radius: 50%;
+      box-shadow: 0 0 0 900px rgba(255, 255, 255, 0.2);
+      content: "";
+      opacity: 0;
+      @include prefix(transform, scale3d(0.5, 0.5, 1), webkit);
+      @include prefix(transform-origin, 50% 50%, webkit);
+    }
+  }
+  p {
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include absolute(right 0 bottom 0);
+    padding: 0 1.5em 1.5em 0;
+    width: 140px;
+    text-align: right;
+    opacity: 0;
+    @include prefix(transform, translate3d(20px, 20px, 0), webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    figcaption {
+      &::before {
+        opacity: 1;
+        @include prefix(transform, scale3d(1, 1, 1), webkit);
+      }
+    }
+    h2 {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+  }
+  h2 {
+    text-align: left;
+    @include prefix(transition, transform 0.35s, webkit);
+    @include prefix(transform, translate3d(5px, 5px, 0), webkit);
+  }
 }

@@ -1,35 +1,36 @@
 .e-image-item.effect-dexter {
-	img {
-		@include prefix(transition, opacity 0.35s, webkit);
-	}
-	&:hover, &.effect-hover {
-		figcaption {
-			&::after {
-				@include prefix(transform, translate3d(0, 0, 0), webkit);
-			}
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-	}
-	figcaption {
-		&::after {
-			@include absolute(right 30px bottom 30px left 30px);
-			height: -webkit-calc(50% - 30px);
-			height: calc(50% - 30px);
-			border: 7px solid #fff;
-			content: "";
-			@include prefix(transition, transform 0.35s, webkit);
-			@include prefix(transform, translate3d(0, -100%, 0), webkit);
-		}
-		padding: 3em;
-		text-align: left;
-	}
-	p {
-		@include absolute(right 60px bottom 60px left 60px);
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, translate3d(0, -100px, 0), webkit);
-	}
+  img {
+    @include prefix(transition, opacity 0.35s, webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    figcaption {
+      &::after {
+        @include prefix(transform, translate3d(0, 0, 0), webkit);
+      }
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+  }
+  figcaption {
+    &::after {
+      @include absolute(right 30px bottom 30px left 30px);
+      height: -webkit-calc(50% - 30px);
+      height: calc(50% - 30px);
+      border: 7px solid $figcaption-text-color;
+      content: "";
+      @include prefix(transition, transform 0.35s, webkit);
+      @include prefix(transform, translate3d(0, -100%, 0), webkit);
+    }
+    padding: 3em;
+    text-align: left;
+  }
+  p {
+    @include absolute(right 60px bottom 60px left 60px);
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, translate3d(0, -100px, 0), webkit);
+  }
 }

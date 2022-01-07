@@ -2,54 +2,20 @@
 // into a CSS stylesheet                       |
 // - - - - - - - - - - - - - - - - - - - - - - |
 
-// Mixin
-@import 'base/mixin';
-
-// Base
-@import 'base/variables';
-@import 'base/typography';
-@import 'base/base';
+@import "base/variable";
+@import "base/mixin";
+@import "base/base";
 
 // Lib
-@import 'aos/src/sass/aos';
-@import 'glightbox/dist/css/glightbox.min';
+@import "aos/src/sass/aos";
+@import "glightbox/dist/css/glightbox.min";
 
 //Components
-@import 'components/loading';
-@import 'components/gallery';
-@import 'components/title';
-@import 'components/filter';
-@import 'components/loadmore';
+@import "components/loading";
+@import "components/gallery";
+@import "components/title";
+@import "components/filter";
+@import "components/loadmore";
 
-// Effects
-@import 'effects/limit';
-@import 'effects/effect1';
-@import 'effects/effect2';
-@import 'effects/effect3';
-@import 'effects/effect4';
-@import 'effects/effect5';
-@import 'effects/effect6';
-@import 'effects/effect7';
-@import 'effects/effect8';
-@import 'effects/effect9';
-@import 'effects/effect10';
-@import 'effects/effect11';
-@import 'effects/effect12';
-@import 'effects/effect13';
-@import 'effects/effect14';
-@import 'effects/effect15';
-@import 'effects/effect16';
-@import 'effects/effect17';
-@import 'effects/effect18';
-@import 'effects/effect19';
-@import 'effects/effect20';
-@import 'effects/effect21';
-@import 'effects/effect22';
-@import 'effects/effect23';
-@import 'effects/effect24';
-@import 'effects/effect25';
-@import 'effects/effect26';
-@import 'effects/effect27';
-@import 'effects/effect28';
-@import 'effects/effect29';
-@import 'effects/effect30';
+@import "effects/style";
+@import "normal/style";

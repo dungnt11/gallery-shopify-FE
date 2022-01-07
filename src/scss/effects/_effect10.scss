@@ -1,32 +1,33 @@
 .e-image-item.effect-ruby {
-	img {
-		opacity: 0.7;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, scale(1.15), webkit);
-	}
-	&:hover, &.effect-hover {
-		img {
-			@include prefix(transform, scale(1), webkit);
-		}
-		h2 {
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, (translate3d(0, 0, 0) scale(1)), webkit);
-		}
-	}
-	h2 {
-		margin-top: 10%;
-		@include prefix(transition, transform 0.35s, webkit);
-		@include prefix(transform, translate3d(0, 20px, 0), webkit);
-	}
-	p {
-		margin: 1em 0 0 !important;
-		padding: 3em;
-		border: 1px solid #fff;
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, (translate3d(0, 20px, 0) scale(1.1)), webkit);
-	}
+  img {
+    opacity: 0.7;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, scale(1.15), webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    img {
+      @include prefix(transform, scale(1), webkit);
+    }
+    h2 {
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, (translate3d(0, 0, 0) scale(1)), webkit);
+    }
+  }
+  h2 {
+    margin-top: 10%;
+    @include prefix(transition, transform 0.35s, webkit);
+    @include prefix(transform, translate3d(0, 20px, 0), webkit);
+  }
+  p {
+    margin: 1em 0 0 !important;
+    padding: 3em;
+    border: 1px solid $figcaption-text-color;
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, (translate3d(0, 20px, 0) scale(1.1)), webkit);
+  }
 }

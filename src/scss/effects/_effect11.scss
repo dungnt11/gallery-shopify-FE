@@ -1,32 +1,33 @@
 .e-image-item.effect-milo {
-	img {
-		max-width: none;
-		width: -webkit-calc(100% + 60px);
-		width: calc(100% + 60px);
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, (translate3d(-30px, 0, 0) scale(1.12)), webkit);
-		@include prefix(backface-visibility, hidden, webkit);
-	}
-	&:hover, &.effect-hover {
-		img {
-			@include prefix(transform, (translate3d(0, 0, 0) scale(1)), webkit);
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-	}
-	h2 {
-		@include absolute(right 0 bottom 0);
-		padding: 1em 1.2em;
-	}
-	p {
-		padding: 0 0 0 10px;
-		width: 50%;
-		border-left: 1px solid #fff;
-		text-align: left;
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, translate3d(-40px, 0, 0), webkit);
-	}
+  img {
+    max-width: none;
+    width: -webkit-calc(100% + 60px);
+    width: calc(100% + 60px);
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, (translate3d(-30px, 0, 0) scale(1.12)), webkit);
+    @include prefix(backface-visibility, hidden, webkit);
+  }
+  &:hover,
+  &.effect-hover {
+    img {
+      @include prefix(transform, (translate3d(0, 0, 0) scale(1)), webkit);
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+  }
+  h2 {
+    @include absolute(right 0 bottom 0);
+    padding: 1em 1.2em;
+  }
+  p {
+    padding: 0 0 0 10px;
+    width: 50%;
+    border-left: 1px solid $figcaption-text-color;
+    text-align: left;
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, translate3d(-40px, 0, 0), webkit);
+  }
 }

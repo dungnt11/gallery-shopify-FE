@@ -1,25 +1,41 @@
 .e-gallery__heading {
-    &.Left {
-        text-align: left;
-    }
-    &.Center {
-        text-align: center;
-    }
-    &.Right {
-        text-align: right;
-    }
-    &--title {
-        font-size: 2.1875em;
-        text-transform: none;
-        letter-spacing: 0;
-        font-family: Work Sans,sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.2;
-    }
-    &--description {
-        color: #69727b;
-        margin: 0 0 19.44444px;
-    }
-    margin-bottom: 3rem;
+  &.Left {
+    text-align: left;
+  }
+  &.Center {
+    text-align: center;
+  }
+  &.Right {
+    text-align: right;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18.72px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+
+  .ql-size-huge {
+    font-size: 2.5em;
+  }
+
+  .ql-size-large {
+    font-size: 1.5em;
+  }
+
+  .ql-size-small {
+    font-size: 0.75em;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
 }

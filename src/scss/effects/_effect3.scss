@@ -1,48 +1,49 @@
 .e-image-item.effect-roxy {
-	&:hover, &.effect-hover {
-		img {
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-		figcaption {
-			&::before {
-				opacity: 1;
-				@include prefix(transform, translate3d(0, 0, 0), webkit);
-			}
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-	}
-	img {
-		max-width: none;
-		width: -webkit-calc(100% + 60px);
-		width: calc(100% + 60px);
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, translate3d(-50px, 0, 0), webkit);
-	}
-	figcaption {
-		&::before {
-			@include absolute(top 30px right 30px bottom 30px left 30px);
-			border: 1px solid #fff;
-			content: "";
-			opacity: 0;
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-			@include prefix(transform, translate3d(-20px, 0, 0), webkit);
-		}
-		padding: 3em;
-		text-align: left;
-		height: 100%;
-		@include flexbox();
-		@include flex-direction(column);
-		@include justify-content(center);
-	}
-	h2 {
-		padding: 0 0 10px 0;
-	}
-	p {
-		opacity: 0;
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		@include prefix(transform, translate3d(-10px, 0, 0), webkit);
-	}
+  &:hover,
+  &.effect-hover {
+    img {
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+    figcaption {
+      &::before {
+        opacity: 1;
+        @include prefix(transform, translate3d(0, 0, 0), webkit);
+      }
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+  }
+  img {
+    max-width: none;
+    width: -webkit-calc(100% + 60px);
+    width: calc(100% + 60px);
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, translate3d(-50px, 0, 0), webkit);
+  }
+  figcaption {
+    &::before {
+      @include absolute(top 30px right 30px bottom 30px left 30px);
+      border: 1px solid $figcaption-text-color;
+      content: "";
+      opacity: 0;
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+      @include prefix(transform, translate3d(-20px, 0, 0), webkit);
+    }
+    padding: 3em;
+    text-align: left;
+    height: 100%;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+  }
+  h2 {
+    padding: 0 0 10px 0;
+  }
+  p {
+    opacity: 0;
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    @include prefix(transform, translate3d(-10px, 0, 0), webkit);
+  }
 }

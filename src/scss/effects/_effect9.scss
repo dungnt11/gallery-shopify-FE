@@ -1,42 +1,43 @@
 .e-image-item.effect-marley {
-	&:hover, &.effect-hover {
-		h2 {
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-			&::after {
-				opacity: 1;
-				@include prefix(transform, translate3d(0, 0, 0), webkit);
-			}
-		}
-		p {
-			opacity: 1;
-			@include prefix(transform, translate3d(0, 0, 0), webkit);
-		}
-	}
-	figcaption {
-		text-align: right;
-		@include flexbox();
-		@include flex-direction(column);
-		@include justify-content(space-between);
-	}
-	h2 {
-		padding: 10px 0;
-		@include prefix(transition, transform 0.35s, webkit);
-		@include prefix(transform, translate3d(0, 20px, 0), webkit);
-		&::after {
-			@include absolute(top 100% left 0);
-			@include box(100%, 4px);
-			background: #fff;
-			content: "";
-			opacity: 0;
-			@include prefix(transform, translate3d(0, 40px, 0), webkit);
-			@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-		}
-	}
-	p {
-		padding: 10px 0;
-		line-height: 1.5;
-		opacity: 0;
-		@include prefix(transform, translate3d(0, 100%, 0), webkit);
-		@include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
-	}
+  &:hover,
+  &.effect-hover {
+    h2 {
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+      &::after {
+        opacity: 1;
+        @include prefix(transform, translate3d(0, 0, 0), webkit);
+      }
+    }
+    p {
+      opacity: 1;
+      @include prefix(transform, translate3d(0, 0, 0), webkit);
+    }
+  }
+  figcaption {
+    text-align: right;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(space-between);
+  }
+  h2 {
+    padding: 10px 0;
+    @include prefix(transition, transform 0.35s, webkit);
+    @include prefix(transform, translate3d(0, 20px, 0), webkit);
+    &::after {
+      @include absolute(top 100% left 0);
+      @include box(100%, 4px);
+      background: $figcaption-text-color;
+      content: "";
+      opacity: 0;
+      @include prefix(transform, translate3d(0, 40px, 0), webkit);
+      @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+    }
+  }
+  p {
+    padding: 10px 0;
+    line-height: 1.5;
+    opacity: 0;
+    @include prefix(transform, translate3d(0, 100%, 0), webkit);
+    @include prefix(transition, (opacity 0.35s, transform 0.35s), webkit);
+  }
 }

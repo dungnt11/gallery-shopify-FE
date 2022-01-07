@@ -1,0 +1,12 @@
+:root {
+  --image-bg: #f8f8f8;
+  --figcaption-bg: rgba(0, 0, 0, 0.3);
+  --figcaption-text-color: #fff;
+  --figcaption-padding: 30px;
+}
+
+$figcaption-bg: var(--figcaption-bg);
+$figcaption-text-color: var(--figcaption-text-color);
+$image-bg: var(--image-bg);
+$figcaption-padding: var(--figcaption-padding);
+$transition-duration: 0.35s !default;
